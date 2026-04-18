@@ -5,919 +5,217 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PrimMaler – Profesjonelt malerfirma</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --cream: #F5F0E8;
-    --dark: #1A1A18;
-    --olive: #4A5240;
-    --olive-light: #6B7360;
-    --gold: #C8A96E;
-    --gold-light: #E8D5A8;
-    --white: #FFFFFF;
-    --gray: #8A8A82;
-    --light-bg: #EFEBE0;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--dark);
-    overflow-x: hidden;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 60px;
-    height: 72px;
-    background: rgba(245,240,232,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(74,82,64,0.12);
-    transition: all 0.3s ease;
-  }
-
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--dark);
-    letter-spacing: -0.02em;
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--gold); }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: var(--olive);
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--dark); }
-
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .lang-switch {
-    display: flex;
-    gap: 4px;
-    background: var(--light-bg);
-    border-radius: 20px;
-    padding: 3px;
-  }
-  .lang-btn {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    padding: 4px 12px;
-    border-radius: 16px;
-    border: none;
-    cursor: pointer;
-    background: transparent;
-    color: var(--gray);
-    transition: all 0.2s;
-  }
-  .lang-btn.active {
-    background: var(--dark);
-    color: var(--white);
-  }
-
-  .nav-cta {
-    background: var(--dark);
-    color: var(--white);
-    padding: 10px 24px;
-    border-radius: 2px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .nav-cta:hover { background: var(--olive); }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 72px;
-  }
-
-  .hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 80px 60px 80px 60px;
-  }
-
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 28px;
-  }
-  .hero-tag::before {
-    content: '';
-    display: block;
-    width: 28px;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 5vw, 4.2rem);
-    font-weight: 900;
-    line-height: 1.08;
-    letter-spacing: -0.03em;
-    color: var(--dark);
-    margin-bottom: 28px;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--olive);
-  }
-
-  .hero-sub {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--olive-light);
-    max-width: 420px;
-    margin-bottom: 48px;
-  }
-
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    background: var(--dark);
-    color: var(--white);
-    padding: 16px 36px;
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: all 0.25s;
-    border: 2px solid var(--dark);
-  }
-  .btn-primary:hover {
-    background: transparent;
-    color: var(--dark);
-  }
-
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--dark);
-    text-decoration: none;
-    transition: gap 0.2s;
-  }
-  .btn-ghost:hover { gap: 14px; }
-  .btn-ghost .arrow { font-size: 1.1rem; }
-
-  .hero-stats {
-    display: flex;
-    gap: 48px;
-    margin-top: 64px;
-    padding-top: 40px;
-    border-top: 1px solid rgba(74,82,64,0.15);
-  }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--dark);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .stat-label {
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--gray);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .hero-right {
-    position: relative;
-    overflow: hidden;
-    background: var(--olive);
-  }
-
-  .hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.85;
-    display: block;
-  }
-
-  .hero-img-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #3A4232 0%, #5A6450 40%, #4A5240 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 16px;
-    color: rgba(255,255,255,0.3);
-  }
-
-  .hero-img-placeholder svg {
-    width: 80px;
-    height: 80px;
-    opacity: 0.4;
-  }
-
-  .hero-img-placeholder p {
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .hero-badge {
-    position: absolute;
-    bottom: 40px;
-    left: -20px;
-    background: var(--gold);
-    color: var(--dark);
-    padding: 20px 28px;
-    border-radius: 2px;
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.04em;
-    box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
-  }
-  .hero-badge .big { font-family: 'Playfair Display', serif; font-size: 1.8rem; display: block; line-height: 1; }
-
-  /* BRANDS */
-  .brands {
-    background: var(--dark);
-    padding: 28px 60px;
-    display: flex;
-    align-items: center;
-    gap: 48px;
-    overflow: hidden;
-  }
-  .brands-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gray);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .brands-list {
-    display: flex;
-    align-items: center;
-    gap: 48px;
-    flex-wrap: wrap;
-  }
-  .brand-item {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: rgba(255,255,255,0.35);
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-    transition: color 0.2s;
-  }
-  .brand-item:hover { color: var(--gold); }
-
-  /* SECTIONS */
-  section { padding: 100px 60px; }
-
-  .section-tag {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .section-tag::before {
-    content: '';
-    display: block;
-    width: 20px;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    color: var(--dark);
-    margin-bottom: 20px;
-  }
-
-  /* WHY US */
-  .why {
-    background: var(--light-bg);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .why-intro p {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: var(--olive-light);
-    margin-top: 20px;
-    max-width: 420px;
-  }
-
-  .why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-  }
-
-  .why-item {
-    background: var(--cream);
-    padding: 32px 28px;
-    transition: background 0.2s;
-  }
-  .why-item:hover { background: var(--dark); }
-  .why-item:hover .why-title { color: var(--white); }
-  .why-item:hover .why-text { color: rgba(255,255,255,0.6); }
-  .why-item:hover .why-icon { background: var(--gold); color: var(--dark); }
-
-  .why-icon {
-    width: 40px;
-    height: 40px;
-    background: var(--gold-light);
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    margin-bottom: 16px;
-    transition: all 0.2s;
-  }
-
-  .why-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 8px;
-    transition: color 0.2s;
-  }
-
-  .why-text {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    color: var(--gray);
-    transition: color 0.2s;
-  }
-
-  /* SERVICES */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    margin-top: 60px;
-  }
-
-  .service-card {
-    background: var(--light-bg);
-    padding: 48px 36px;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s;
-    cursor: default;
-  }
-  .service-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 0; height: 3px;
-    background: var(--gold);
-    transition: width 0.4s ease;
-  }
-  .service-card:hover::after { width: 100%; }
-  .service-card:hover { background: var(--cream); }
-
-  .service-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    font-weight: 900;
-    color: rgba(74,82,64,0.1);
-    line-height: 1;
-    margin-bottom: 20px;
-  }
-
-  .service-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 16px;
-  }
-
-  .service-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .service-list li {
-    font-size: 0.875rem;
-    color: var(--olive-light);
-    padding-left: 16px;
-    position: relative;
-    line-height: 1.5;
-  }
-  .service-list li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--gold);
-    font-size: 0.75rem;
-  }
-
-  /* PROJECTS */
-  .projects { background: var(--dark); }
-  .projects .section-title { color: var(--white); }
-  .projects .section-tag { color: var(--gold); }
-
-  .projects-intro {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.5);
-    max-width: 520px;
-    margin-top: 16px;
-    margin-bottom: 60px;
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3px;
-  }
-
-  .project-card {
-    aspect-ratio: 4/3;
-    background: var(--olive);
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-  }
-
-  .project-card .placeholder-img {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #3A4232, #5A6450);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255,255,255,0.15);
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: all 0.3s;
-  }
-
-  .project-card:hover .placeholder-img {
-    background: linear-gradient(135deg, #4A5240, #6B7360);
-    color: rgba(255,255,255,0.3);
-  }
-
-  .project-card-overlay {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
-    padding: 24px 20px 20px;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-  }
-  .project-card:hover .project-card-overlay { transform: translateY(0); }
-
-  .project-card-label {
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--white);
-    letter-spacing: 0.04em;
-  }
-
-  /* REVIEWS */
-  .reviews { background: var(--cream); }
-  .reviews-header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin-bottom: 60px;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-
-  .reviews-score {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--dark);
-    color: var(--white);
-    padding: 16px 28px;
-    border-radius: 2px;
-  }
-  .score-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--gold);
-  }
-  .stars { color: var(--gold); font-size: 1.1rem; letter-spacing: 2px; }
-  .score-sub { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
-
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-  }
-
-  .review-card {
-    background: var(--light-bg);
-    padding: 36px 32px;
-    transition: background 0.2s;
-  }
-  .review-card:hover { background: var(--white); }
-
-  .review-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 16px; }
-
-  .review-text {
-    font-size: 0.92rem;
-    line-height: 1.7;
-    color: var(--olive-light);
-    margin-bottom: 24px;
-    font-style: italic;
-  }
-
-  .review-author {
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: var(--dark);
-    letter-spacing: 0.02em;
-  }
-
-  /* FAQ */
-  .faq { background: var(--light-bg); }
-  .faq-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    margin-top: 60px;
-  }
-  .faq-item {
-    background: var(--cream);
-    padding: 0;
-    cursor: pointer;
-    border-bottom: 1px solid rgba(74,82,64,0.1);
-  }
-  .faq-q {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 28px 32px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--dark);
-    user-select: none;
-  }
-  .faq-toggle {
-    width: 28px;
-    height: 28px;
-    background: var(--gold-light);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    color: var(--dark);
-    flex-shrink: 0;
-    transition: all 0.2s;
-    font-weight: 300;
-  }
-  .faq-item.open .faq-toggle {
-    background: var(--dark);
-    color: var(--white);
-    transform: rotate(45deg);
-  }
-  .faq-a {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.2s;
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: var(--olive-light);
-    padding: 0 32px;
-  }
-  .faq-item.open .faq-a {
-    max-height: 300px;
-    padding: 0 32px 28px;
-  }
-
-  /* CTA BANNER */
-  .cta-banner {
-    background: var(--olive);
-    padding: 80px 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-  .cta-banner h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
-    font-weight: 900;
-    color: var(--white);
-    line-height: 1.15;
-  }
-  .cta-banner h2 em { color: var(--gold); font-style: italic; }
-  .cta-banner p { color: rgba(255,255,255,0.6); margin-top: 10px; font-size: 1rem; max-width: 440px; }
-
-  .btn-gold {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--dark);
-    padding: 18px 40px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    white-space: nowrap;
-    transition: all 0.2s;
-    border: 2px solid var(--gold);
-    flex-shrink: 0;
-  }
-  .btn-gold:hover { background: transparent; color: var(--gold); }
-
-  /* CONTACT */
-  .contact {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    padding: 0;
-  }
-
-  .contact-info {
-    background: var(--dark);
-    padding: 80px 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .contact-info .section-title { color: var(--white); }
-  .contact-info .section-tag { color: var(--gold); }
-
-  .contact-info p {
-    color: rgba(255,255,255,0.5);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-top: 20px;
-    margin-bottom: 48px;
-    max-width: 380px;
-  }
-
-  .contact-details { display: flex; flex-direction: column; gap: 20px; }
-
-  .contact-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .contact-icon {
-    width: 44px;
-    height: 44px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    flex-shrink: 0;
-  }
-  .contact-val { color: var(--white); font-size: 1rem; font-weight: 500; }
-  .contact-val a { color: var(--white); text-decoration: none; }
-  .contact-val a:hover { color: var(--gold); }
-
-  .contact-form {
-    background: var(--cream);
-    padding: 80px 60px;
-  }
-
-  .form-group { margin-bottom: 20px; }
-  .form-group label {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-bottom: 8px;
-  }
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    width: 100%;
-    background: var(--light-bg);
-    border: 1px solid rgba(74,82,64,0.15);
-    border-radius: 2px;
-    padding: 14px 18px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.92rem;
-    color: var(--dark);
-    outline: none;
-    transition: border-color 0.2s;
-    appearance: none;
-  }
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus { border-color: var(--gold); }
-  .form-group textarea { resize: vertical; min-height: 120px; }
-
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-  .form-submit {
-    background: var(--dark);
-    color: var(--white);
-    border: 2px solid var(--dark);
-    padding: 16px 36px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    cursor: pointer;
-    border-radius: 2px;
-    transition: all 0.2s;
-    width: 100%;
-    margin-top: 8px;
-  }
-  .form-submit:hover { background: transparent; color: var(--dark); }
-
-  /* FOOTER */
-  footer {
-    background: var(--dark);
-    padding: 60px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 60px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .footer-brand .nav-logo { display: block; margin-bottom: 16px; }
-  .footer-brand p { color: rgba(255,255,255,0.35); font-size: 0.85rem; line-height: 1.7; max-width: 260px; }
-
-  .footer-col h4 {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
-  }
-
-  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .footer-links a { color: rgba(255,255,255,0.4); font-size: 0.88rem; text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--white); }
-
-  .footer-bottom {
-    background: var(--dark);
-    padding: 20px 60px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.25);
-  }
-
-  /* ANIMATIONS */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* MOBILE MENU */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-  }
-  .hamburger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--dark);
-    transition: all 0.3s;
-  }
-
-  @media (max-width: 900px) {
-    nav { padding: 0 24px; }
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-
-    section { padding: 60px 24px; }
-
-    .hero { grid-template-columns: 1fr; }
-    .hero-right { min-height: 300px; }
-    .hero-left { padding: 60px 24px; }
-    .hero-stats { gap: 32px; flex-wrap: wrap; }
-
-    .brands { padding: 20px 24px; }
-
-    .why { grid-template-columns: 1fr; gap: 40px; }
-    .why-grid { grid-template-columns: 1fr; }
-
-    .services-grid { grid-template-columns: 1fr; }
-    .projects-grid { grid-template-columns: 1fr 1fr; }
-    .reviews-grid { grid-template-columns: 1fr; }
-    .faq-grid { grid-template-columns: 1fr; }
-
-    .contact { grid-template-columns: 1fr; }
-    .contact-info, .contact-form { padding: 60px 24px; }
-
-    .cta-banner { padding: 60px 24px; }
-
-    footer { grid-template-columns: 1fr; gap: 40px; padding: 40px 24px; }
-    .footer-bottom { padding: 16px 24px; flex-direction: column; gap: 8px; text-align: center; }
-
-    .form-row { grid-template-columns: 1fr; }
-
-    .reviews-header { flex-direction: column; align-items: flex-start; }
-  }
+:root {
+  --blue:       #B8D4E8;
+  --blue-mid:   #7AAEC8;
+  --blue-deep:  #2E6B8A;
+  --blue-dark:  #1A3D52;
+  --blue-pale:  #EAF4FB;
+  --white:      #FFFFFF;
+  --ink:        #0E2330;
+  --muted:      #5A7A8A;
+  --border:     rgba(46,107,138,0.13);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Outfit',sans-serif; background:var(--white); color:var(--ink); overflow-x:hidden; }
+
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 64px; height:68px;
+  background:rgba(255,255,255,0.94); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border); transition:box-shadow 0.3s;
+}
+.nav-logo { font-family:'Cormorant Garamond',serif; font-size:1.55rem; font-weight:600; color:var(--ink); text-decoration:none; letter-spacing:0.01em; }
+.nav-logo span { color:var(--blue-deep); }
+.nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+.nav-links a { font-size:0.82rem; font-weight:500; letter-spacing:0.07em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--ink); }
+.nav-right { display:flex; align-items:center; gap:16px; }
+.lang-switch { display:flex; gap:2px; background:var(--blue-pale); border-radius:20px; padding:3px; }
+.lang-btn { font-size:0.72rem; font-weight:600; letter-spacing:0.07em; padding:4px 11px; border-radius:16px; border:none; cursor:pointer; background:transparent; color:var(--muted); font-family:'Outfit',sans-serif; transition:all 0.2s; }
+.lang-btn.active { background:var(--blue-deep); color:var(--white); }
+.nav-cta { background:var(--blue-deep); color:var(--white); padding:9px 22px; border-radius:4px; font-size:0.8rem; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; text-decoration:none; transition:background 0.2s; }
+.nav-cta:hover { background:var(--blue-dark); }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+.hamburger span { display:block; width:22px; height:1.5px; background:var(--ink); }
+
+/* HERO */
+.hero { min-height:100vh; display:grid; grid-template-columns:55% 45%; padding-top:68px; }
+.hero-left { display:flex; flex-direction:column; justify-content:center; padding:80px 64px; background:var(--white); }
+.eyebrow { font-size:0.72rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--blue-deep); margin-bottom:22px; }
+.hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,4.5vw,4.8rem); font-weight:600; line-height:1.06; letter-spacing:-0.01em; color:var(--ink); margin-bottom:24px; }
+.hero h1 em { font-style:italic; color:var(--blue-deep); }
+.hero-sub { font-size:1rem; line-height:1.72; color:var(--muted); max-width:400px; margin-bottom:44px; font-weight:300; }
+.hero-actions { display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+.btn-primary { display:inline-block; background:var(--blue-deep); color:var(--white); padding:14px 32px; border-radius:4px; font-size:0.85rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; text-decoration:none; transition:background 0.2s; }
+.btn-primary:hover { background:var(--blue-dark); }
+.btn-ghost { display:inline-flex; align-items:center; gap:6px; font-size:0.85rem; font-weight:500; color:var(--ink); text-decoration:none; transition:gap 0.2s; }
+.btn-ghost:hover { gap:12px; }
+.hero-stats { display:flex; gap:40px; margin-top:56px; padding-top:36px; border-top:1px solid var(--border); flex-wrap:wrap; }
+.stat-num { font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:600; color:var(--blue-deep); line-height:1; margin-bottom:4px; }
+.stat-label { font-size:0.75rem; color:var(--muted); font-weight:400; }
+.hero-right { background:var(--blue-pale); position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+.hero-photo-ph { width:100%; height:100%; background:linear-gradient(160deg,var(--blue) 0%,var(--blue-mid) 60%,var(--blue-deep) 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; color:rgba(255,255,255,0.4); }
+.hero-photo-ph svg { width:64px; height:64px; opacity:0.5; }
+.hero-photo-ph p { font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; }
+.hero-badge { position:absolute; bottom:36px; left:36px; background:var(--white); border-left:3px solid var(--blue-deep); padding:14px 20px; border-radius:0 4px 4px 0; box-shadow:0 8px 32px rgba(30,70,100,0.12); }
+.hero-badge .big { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:600; color:var(--blue-deep); display:block; line-height:1; }
+.hero-badge span { font-size:0.72rem; color:var(--muted); letter-spacing:0.04em; }
+
+/* BRANDS */
+.brands { background:var(--blue-pale); padding:22px 64px; display:flex; align-items:center; gap:48px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.brands-label { font-size:0.7rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); white-space:nowrap; flex-shrink:0; }
+.brands-list { display:flex; align-items:center; gap:44px; flex-wrap:wrap; }
+.brand-item { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; color:var(--blue-mid); letter-spacing:0.03em; }
+
+/* SECTION SHARED */
+section { padding:96px 64px; }
+.section-label { font-size:0.7rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--blue-deep); margin-bottom:14px; }
+h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3vw,2.9rem); font-weight:600; line-height:1.12; letter-spacing:-0.01em; color:var(--ink); margin-bottom:16px; }
+.lead { font-size:1rem; line-height:1.72; color:var(--muted); font-weight:300; max-width:560px; }
+
+/* WHY US */
+.why { background:var(--white); }
+.why-layout { display:grid; grid-template-columns:1fr 1.6fr; gap:80px; align-items:start; }
+.why-intro .lead { margin-top:14px; }
+.why-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); }
+.why-item { background:var(--white); padding:28px 24px; transition:background 0.2s; }
+.why-item:hover { background:var(--blue-pale); }
+.why-num { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:600; color:var(--blue); margin-bottom:8px; }
+.why-title { font-size:0.9rem; font-weight:600; color:var(--ink); margin-bottom:6px; }
+.why-text { font-size:0.83rem; line-height:1.6; color:var(--muted); }
+
+/* SERVICES */
+.services { background:var(--blue-pale); }
+.services-layout { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-top:52px; }
+.service-card { background:var(--white); padding:44px 36px; transition:box-shadow 0.2s; }
+.service-card:hover { box-shadow:inset 0 3px 0 var(--blue-deep); }
+.service-icon { font-size:1.6rem; margin-bottom:18px; }
+.service-title { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:600; color:var(--ink); margin-bottom:16px; }
+.service-list { list-style:none; display:flex; flex-direction:column; gap:7px; }
+.service-list li { font-size:0.85rem; color:var(--muted); padding-left:14px; position:relative; line-height:1.5; }
+.service-list li::before { content:'–'; position:absolute; left:0; color:var(--blue-mid); }
+
+/* PROJECTS */
+.projects { background:var(--blue-dark); padding:96px 64px; }
+.projects h2 { color:var(--white); }
+.projects .section-label { color:var(--blue); }
+.projects .lead { color:rgba(255,255,255,0.45); margin-bottom:52px; }
+.projects-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
+.project-card { aspect-ratio:4/3; background:var(--blue-deep); position:relative; overflow:hidden; cursor:pointer; }
+.project-ph { width:100%; height:100%; background:linear-gradient(135deg,var(--blue-dark),var(--blue-deep)); display:flex; align-items:center; justify-content:center; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.2); transition:all 0.3s; }
+.project-card:hover .project-ph { background:linear-gradient(135deg,var(--blue-deep),var(--blue-mid)); color:rgba(255,255,255,0.4); }
+.project-label { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(14,35,48,0.85)); padding:24px 16px 16px; font-size:0.8rem; font-weight:500; color:var(--white); transform:translateY(100%); transition:transform 0.3s ease; }
+.project-card:hover .project-label { transform:translateY(0); }
+
+/* REVIEWS */
+.reviews { background:var(--white); }
+.reviews-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:52px; gap:24px; flex-wrap:wrap; }
+.google-score { display:flex; align-items:center; gap:12px; background:var(--blue-pale); padding:14px 22px; border-radius:4px; border:1px solid var(--border); }
+.score-num { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:600; color:var(--blue-deep); }
+.stars { color:#F5A623; font-size:1rem; letter-spacing:2px; }
+.score-sub { font-size:0.72rem; color:var(--muted); margin-top:2px; }
+.reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
+.review-card { background:var(--white); padding:32px 28px; transition:background 0.2s; }
+.review-card:hover { background:var(--blue-pale); }
+.review-stars { color:#F5A623; font-size:0.82rem; letter-spacing:2px; margin-bottom:14px; }
+.review-text { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-style:italic; line-height:1.65; color:var(--ink); margin-bottom:18px; }
+.review-author { font-size:0.78rem; font-weight:600; color:var(--muted); letter-spacing:0.04em; }
+
+/* FAQ */
+.faq { background:var(--blue-pale); }
+.faq-layout { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-top:52px; }
+.faq-item { background:var(--white); cursor:pointer; }
+.faq-q { display:flex; align-items:center; justify-content:space-between; padding:22px 28px; font-size:0.9rem; font-weight:500; color:var(--ink); user-select:none; gap:16px; }
+.faq-plus { width:24px; height:24px; border-radius:50%; border:1.5px solid var(--blue-mid); display:flex; align-items:center; justify-content:center; font-size:1rem; color:var(--blue-mid); flex-shrink:0; transition:all 0.2s; }
+.faq-item.open .faq-plus { background:var(--blue-deep); border-color:var(--blue-deep); color:var(--white); transform:rotate(45deg); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height 0.35s ease, padding 0.2s; font-size:0.86rem; line-height:1.7; color:var(--muted); padding:0 28px; }
+.faq-item.open .faq-a { max-height:200px; padding:0 28px 22px; }
+
+/* CTA */
+.cta-banner { background:var(--blue-deep); padding:72px 64px; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+.cta-banner h2 { color:var(--white); }
+.cta-banner h2 em { font-style:italic; color:var(--blue); }
+.cta-banner p { color:rgba(255,255,255,0.55); font-size:0.95rem; font-weight:300; margin-top:8px; max-width:440px; }
+.btn-white { display:inline-block; background:var(--white); color:var(--blue-deep); padding:15px 36px; border-radius:4px; font-size:0.85rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; white-space:nowrap; flex-shrink:0; transition:all 0.2s; border:2px solid var(--white); }
+.btn-white:hover { background:transparent; color:var(--white); }
+
+/* CONTACT */
+.contact { display:grid; grid-template-columns:1fr 1fr; padding:0; }
+.contact-info { background:var(--blue-dark); padding:80px 64px; }
+.contact-info h2 { color:var(--white); }
+.contact-info .section-label { color:var(--blue); }
+.contact-info p { color:rgba(255,255,255,0.45); font-size:0.95rem; line-height:1.72; font-weight:300; margin-top:16px; margin-bottom:44px; max-width:360px; }
+.contact-details { display:flex; flex-direction:column; gap:18px; }
+.contact-row { display:flex; align-items:center; gap:14px; }
+.c-icon { width:38px; height:38px; background:rgba(255,255,255,0.07); border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+.c-val { color:var(--white); font-size:0.95rem; }
+.c-val a { color:var(--white); text-decoration:none; }
+.c-val a:hover { color:var(--blue); }
+.contact-form { background:var(--blue-pale); padding:80px 64px; }
+.contact-form h2 { font-size:2rem; }
+.form-group { margin-bottom:18px; }
+.form-group label { display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:7px; }
+.form-group input,.form-group textarea,.form-group select { width:100%; background:var(--white); border:1px solid var(--border); border-radius:4px; padding:12px 16px; font-family:'Outfit',sans-serif; font-size:0.9rem; color:var(--ink); outline:none; transition:border-color 0.2s; appearance:none; }
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus { border-color:var(--blue-mid); }
+.form-group textarea { resize:vertical; min-height:110px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.form-submit { width:100%; margin-top:6px; background:var(--blue-deep); color:var(--white); border:none; padding:14px; border-radius:4px; font-family:'Outfit',sans-serif; font-size:0.85rem; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; cursor:pointer; transition:background 0.2s; }
+.form-submit:hover { background:var(--blue-dark); }
+
+/* FOOTER */
+footer { background:var(--ink); padding:56px 64px; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:60px; border-top:1px solid rgba(255,255,255,0.06); }
+.footer-logo { display:block; margin-bottom:12px; }
+footer p { color:rgba(255,255,255,0.3); font-size:0.83rem; line-height:1.7; max-width:240px; }
+.footer-col h4 { font-size:0.68rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--blue-mid); margin-bottom:18px; }
+.footer-links { list-style:none; display:flex; flex-direction:column; gap:9px; }
+.footer-links a { color:rgba(255,255,255,0.35); font-size:0.85rem; text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:var(--white); }
+.footer-bottom { background:var(--ink); padding:18px 64px; border-top:1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; align-items:center; font-size:0.75rem; color:rgba(255,255,255,0.2); }
+
+/* ANIM */
+.fade-up { opacity:0; transform:translateY(24px); transition:opacity 0.55s ease,transform 0.55s ease; }
+.fade-up.visible { opacity:1; transform:translateY(0); }
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{padding:0 24px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  section{padding:60px 24px;}
+  .hero{grid-template-columns:1fr;}
+  .hero-left{padding:60px 24px;}
+  .hero-right{min-height:260px;}
+  .brands{padding:18px 24px;gap:24px;}
+  .why-layout,.services-layout,.contact{grid-template-columns:1fr;}
+  .services-layout{margin-top:36px;}
+  .projects-grid,.reviews-grid,.faq-layout{grid-template-columns:1fr 1fr;}
+  .cta-banner{padding:56px 24px;}
+  .contact-info,.contact-form{padding:60px 24px;}
+  footer{grid-template-columns:1fr;gap:36px;padding:40px 24px;}
+  .footer-bottom{padding:16px 24px;flex-direction:column;gap:6px;text-align:center;}
+  .form-row{grid-template-columns:1fr;}
+  .reviews-header{flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:600px){
+  .projects-grid,.reviews-grid,.faq-layout{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Prim<span>Maler</span></a>
   <ul class="nav-links">
     <li><a href="#tjenester" data-no="Tjenester" data-en="Services">Tjenester</a></li>
     <li><a href="#prosjekter" data-no="Prosjekter" data-en="Projects">Prosjekter</a></li>
     <li><a href="#anmeldelser" data-no="Anmeldelser" data-en="Reviews">Anmeldelser</a></li>
-    <li><a href="#faq" data-no="FAQ" data-en="FAQ">FAQ</a></li>
+    <li><a href="#faq" data-no="Spørsmål" data-en="FAQ">Spørsmål</a></li>
     <li><a href="#kontakt" data-no="Kontakt" data-en="Contact">Kontakt</a></li>
   </ul>
   <div class="nav-right">
@@ -927,150 +225,128 @@
     </div>
     <a href="#kontakt" class="nav-cta" data-no="Gratis tilbud" data-en="Free quote">Gratis tilbud</a>
   </div>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" style="padding:0;">
   <div class="hero-left">
-    <div class="hero-tag" data-no="Profesjonelt malerfirma" data-en="Professional painting company">Profesjonelt malerfirma</div>
-    <h1 data-no="Kvalitetsmaling for <em>hjem og</em> næringsbygg" data-en="Quality painting for <em>homes and</em> commercial buildings">Kvalitetsmaling for <em>hjem og</em> næringsbygg</h1>
-    <p class="hero-sub" data-no="Vi tilbyr innvendige og utvendige malertjenester til private, borettslag og næringskunder i Fredrikstad og omegn. Fast pris, ingen skjulte kostnader." data-en="We offer interior and exterior painting services to private customers, housing associations, and businesses in and around Fredrikstad. Fixed price, no hidden costs.">Vi tilbyr innvendige og utvendige malertjenester til private, borettslag og næringskunder i Fredrikstad og omegn. Fast pris, ingen skjulte kostnader.</p>
+    <div class="eyebrow" data-no="Profesjonelt malerfirma · Fredrikstad" data-en="Professional painting company · Fredrikstad">Profesjonelt malerfirma · Fredrikstad</div>
+    <h1 data-no="Maling du kan stole på, <em>innvendig og utvendig</em>" data-en="Painting you can trust, <em>inside and out</em>">Maling du kan stole på, <em>innvendig og utvendig</em></h1>
+    <p class="hero-sub" data-no="Vi leverer kvalitetsmaling til private, borettslag og næringskunder i Østfold. Fast pris, sertifiserte fagfolk og ingen skjulte kostnader." data-en="We deliver quality painting to private customers, housing associations, and businesses in Østfold. Fixed price, certified professionals, no hidden costs.">Vi leverer kvalitetsmaling til private, borettslag og næringskunder i Østfold. Fast pris, sertifiserte fagfolk og ingen skjulte kostnader.</p>
     <div class="hero-actions">
       <a href="#kontakt" class="btn-primary" data-no="Få gratis tilbud" data-en="Get a free quote">Få gratis tilbud</a>
-      <a href="#prosjekter" class="btn-ghost" data-no="Se våre prosjekter <span class='arrow'>→</span>" data-en="See our projects <span class='arrow'>→</span>">Se våre prosjekter <span class="arrow">→</span></a>
+      <a href="#prosjekter" class="btn-ghost" data-no="Se prosjekter →" data-en="See projects →">Se prosjekter →</a>
     </div>
     <div class="hero-stats">
-      <div>
-        <div class="stat-num">200+</div>
-        <div class="stat-label" data-no="Fornøyde kunder" data-en="Happy customers">Fornøyde kunder</div>
-      </div>
-      <div>
-        <div class="stat-num">12+</div>
-        <div class="stat-label" data-no="Års erfaring" data-en="Years experience">Års erfaring</div>
-      </div>
-      <div>
-        <div class="stat-num">5.0</div>
-        <div class="stat-label" data-no="Google-vurdering" data-en="Google rating">Google-vurdering</div>
-      </div>
+      <div><div class="stat-num">200+</div><div class="stat-label" data-no="Fornøyde kunder" data-en="Happy customers">Fornøyde kunder</div></div>
+      <div><div class="stat-num">12+</div><div class="stat-label" data-no="Års erfaring" data-en="Years experience">Års erfaring</div></div>
+      <div><div class="stat-num">5.0</div><div class="stat-label" data-no="Google-vurdering" data-en="Google rating">Google-vurdering</div></div>
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-img-placeholder">
-      <svg viewBox="0 0 80 80" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="20" width="60" height="45" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
-        <path d="M10 35 L80 35" stroke="currentColor" stroke-width="1.5"/>
-        <rect x="25" y="42" width="14" height="23" fill="currentColor" opacity="0.4"/>
-        <rect x="45" y="42" width="25" height="14" fill="currentColor" opacity="0.3"/>
-        <path d="M10 20 L40 8 L70 20" stroke="currentColor" stroke-width="2" fill="none"/>
+    <div class="hero-photo-ph">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="16" width="52" height="38" rx="2" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M6 30h52" stroke="currentColor" stroke-width="1"/>
+        <rect x="18" y="36" width="12" height="18" fill="currentColor" opacity="0.4"/>
+        <rect x="36" y="36" width="18" height="12" fill="currentColor" opacity="0.3"/>
+        <path d="M6 16l26-10 26 10" stroke="currentColor" stroke-width="1.5"/>
       </svg>
       <p data-no="Ditt bilde her" data-en="Your photo here">Ditt bilde her</p>
     </div>
     <div class="hero-badge">
       <span class="big">★ 5.0</span>
-      <span data-no="Google anmeldelser" data-en="Google reviews">Google anmeldelser</span>
+      <span data-no="Google-anmeldelser" data-en="Google reviews">Google-anmeldelser</span>
     </div>
   </div>
 </section>
 
 <!-- BRANDS -->
 <div class="brands">
-  <div class="brands-label" data-no="Godkjente produkter" data-en="Approved products">Godkjente produkter</div>
+  <div class="brands-label" data-no="Godkjente merker" data-en="Approved brands">Godkjente merker</div>
   <div class="brands-list">
     <div class="brand-item">Jotun</div>
     <div class="brand-item">Nordsjö</div>
     <div class="brand-item">Beckers</div>
     <div class="brand-item">Gjøco</div>
-    <div class="brand-item">Jordan</div>
     <div class="brand-item">Tikkurila</div>
+    <div class="brand-item">Jordan</div>
   </div>
 </div>
 
 <!-- WHY US -->
 <section class="why fade-up">
-  <div class="why-intro">
-    <div class="section-tag" data-no="Hvorfor velge oss" data-en="Why choose us">Hvorfor velge oss</div>
-    <h2 class="section-title" data-no="Vi gjør jobben riktig – første gang" data-en="We do the job right – first time">Vi gjør jobben riktig – første gang</h2>
-    <p data-no="Hos PrimMaler kombinerer vi faglig dyktighet med ærlig kommunikasjon og forutsigbare priser. Vi er stolte av å levere høy kvalitet på hvert eneste oppdrag, enten det er et rom eller en hel fasade." data-en="At PrimMaler, we combine professional skill with honest communication and predictable pricing. We're proud to deliver high quality on every single job, whether it's a room or an entire facade.">Hos PrimMaler kombinerer vi faglig dyktighet med ærlig kommunikasjon og forutsigbare priser. Vi er stolte av å levere høy kvalitet på hvert eneste oppdrag, enten det er et rom eller en hel fasade.</p>
-  </div>
-  <div class="why-grid">
-    <div class="why-item">
-      <div class="why-icon">💰</div>
-      <div class="why-title" data-no="Fast pris" data-en="Fixed price">Fast pris</div>
-      <div class="why-text" data-no="Ingen skjulte kostnader. Din pris inkluderer alt — materialer, arbeid og MVA." data-en="No hidden costs. Your price includes everything — materials, labor, and VAT.">Ingen skjulte kostnader. Din pris inkluderer alt — materialer, arbeid og MVA.</div>
+  <div class="why-layout">
+    <div class="why-intro">
+      <div class="section-label" data-no="Hvorfor velge oss" data-en="Why choose us">Hvorfor velge oss</div>
+      <h2 data-no="Ærlig håndverk, forutsigbare priser" data-en="Honest craftsmanship, predictable prices">Ærlig håndverk, forutsigbare priser</h2>
+      <p class="lead" data-no="Vi kombinerer faglig dyktighet med tydelig kommunikasjon og en fast kontaktperson fra start til slutt. Du vet alltid hva du betaler — inkludert materialer, stillas og MVA." data-en="We combine professional skill with clear communication and a dedicated contact person from start to finish. You always know what you're paying — including materials, scaffolding, and VAT.">Vi kombinerer faglig dyktighet med tydelig kommunikasjon og en fast kontaktperson fra start til slutt. Du vet alltid hva du betaler — inkludert materialer, stillas og MVA.</p>
     </div>
-    <div class="why-item">
-      <div class="why-icon">🏅</div>
-      <div class="why-title" data-no="Kvalitetsgaranti" data-en="Quality guarantee">Kvalitetsgaranti</div>
-      <div class="why-text" data-no="Alt arbeid er dekket av garanti. Vi bruker kun anerkjente produkter av topp kvalitet." data-en="All work is covered by warranty. We only use recognized top-quality products.">Alt arbeid er dekket av garanti. Vi bruker kun anerkjente produkter av topp kvalitet.</div>
-    </div>
-    <div class="why-item">
-      <div class="why-icon">📞</div>
-      <div class="why-title" data-no="Alltid tilgjengelig" data-en="Always available">Alltid tilgjengelig</div>
-      <div class="why-text" data-no="En fast kontaktperson gjennom hele prosjektet, som svarer når du ringer." data-en="One dedicated contact person throughout the project, who answers when you call.">En fast kontaktperson gjennom hele prosjektet, som svarer når du ringer.</div>
-    </div>
-    <div class="why-item">
-      <div class="why-icon">🛡️</div>
-      <div class="why-title" data-no="HMS og forsikring" data-en="HSE and insurance">HMS og forsikring</div>
-      <div class="why-text" data-no="Alle ansatte har HMS-kort. Firmaet er fullforsikret for trygghet for deg og oss." data-en="All employees hold HSE cards. The company is fully insured for peace of mind.">Alle ansatte har HMS-kort. Firmaet er fullforsikret for trygghet for deg og oss.</div>
-    </div>
-    <div class="why-item">
-      <div class="why-icon">⭐</div>
-      <div class="why-title" data-no="Gode referanser" data-en="Strong references">Gode referanser</div>
-      <div class="why-text" data-no="Vi har hundrevis av fornøyde kunder som gjerne anbefaler oss videre." data-en="We have hundreds of satisfied customers who are happy to recommend us.">Vi har hundrevis av fornøyde kunder som gjerne anbefaler oss videre.</div>
-    </div>
-    <div class="why-item">
-      <div class="why-icon">🎨</div>
-      <div class="why-title" data-no="Faglig rådgivning" data-en="Expert advice">Faglig rådgivning</div>
-      <div class="why-text" data-no="Vi hjelper deg å velge riktige materialer og produkter for ditt prosjekt." data-en="We help you choose the right materials and products for your project.">Vi hjelper deg å velge riktige materialer og produkter for ditt prosjekt.</div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <div class="why-title" data-no="Fast pris, alt inkludert" data-en="Fixed price, all included">Fast pris, alt inkludert</div>
+        <div class="why-text" data-no="Materialer, arbeid, stillas og MVA er alltid inkludert. Ingen overraskelser." data-en="Materials, labor, scaffolding, and VAT always included. No surprises.">Materialer, arbeid, stillas og MVA er alltid inkludert. Ingen overraskelser.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <div class="why-title" data-no="Kvalitetsgaranti" data-en="Quality guarantee">Kvalitetsgaranti</div>
+        <div class="why-text" data-no="Alt arbeid er dekket av garanti. Vi bruker kun anerkjente produkter av høy kvalitet." data-en="All work is covered by warranty. We only use recognized, high-quality products.">Alt arbeid er dekket av garanti. Vi bruker kun anerkjente produkter av høy kvalitet.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <div class="why-title" data-no="HMS-sertifisert" data-en="HSE certified">HMS-sertifisert</div>
+        <div class="why-text" data-no="Alle ansatte har HMS-kort. Firmaet er fullforsikret for trygghet for alle parter." data-en="All employees hold HSE cards. The company is fully insured for everyone's peace of mind.">Alle ansatte har HMS-kort. Firmaet er fullforsikret for trygghet for alle parter.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <div class="why-title" data-no="Alltid tilgjengelig" data-en="Always available">Alltid tilgjengelig</div>
+        <div class="why-text" data-no="Én fast kontaktperson svarer telefonen og holder deg løpende oppdatert." data-en="One dedicated contact person answers the phone and keeps you continuously updated.">Én fast kontaktperson svarer telefonen og holder deg løpende oppdatert.</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section id="tjenester" class="fade-up">
-  <div class="section-tag" data-no="Hva vi tilbyr" data-en="What we offer">Hva vi tilbyr</div>
-  <h2 class="section-title" data-no="Våre tjenester" data-en="Our services">Våre tjenester</h2>
-  <div class="services-grid">
+<section id="tjenester" class="services fade-up">
+  <div class="section-label" data-no="Tjenester" data-en="Services">Tjenester</div>
+  <h2 data-no="Hva vi tilbyr" data-en="What we offer">Hva vi tilbyr</h2>
+  <div class="services-layout">
     <div class="service-card">
-      <div class="service-num">01</div>
+      <div class="service-icon">🏠</div>
       <div class="service-title" data-no="Utvendig maling" data-en="Exterior painting">Utvendig maling</div>
       <ul class="service-list">
-        <li data-no="Maling av fasade og panel" data-en="Painting of facade and cladding">Maling av fasade og panel</li>
-        <li data-no="Beising av treverk" data-en="Staining of woodwork">Beising av treverk</li>
-        <li data-no="Fasadevask og kraftvask" data-en="Facade washing and power washing">Fasadevask og kraftvask</li>
-        <li data-no="Skraping og grunning" data-en="Scraping and priming">Skraping og grunning</li>
+        <li data-no="Fasade, panel og treverk" data-en="Facade, cladding, and woodwork">Fasade, panel og treverk</li>
+        <li data-no="Beising og grunning" data-en="Staining and priming">Beising og grunning</li>
+        <li data-no="Fasadevask og kraftvask" data-en="Facade and power washing">Fasadevask og kraftvask</li>
         <li data-no="Slemming og pussreparasjon" data-en="Rendering and plaster repair">Slemming og pussreparasjon</li>
         <li data-no="Utskifting av råtne elementer" data-en="Replacement of rotten elements">Utskifting av råtne elementer</li>
         <li data-no="Stillas og lift inkludert" data-en="Scaffolding and lift included">Stillas og lift inkludert</li>
       </ul>
     </div>
     <div class="service-card">
-      <div class="service-num">02</div>
+      <div class="service-icon">🖌</div>
       <div class="service-title" data-no="Innvendig maling" data-en="Interior painting">Innvendig maling</div>
       <ul class="service-list">
-        <li data-no="Maling av vegger og tak" data-en="Painting of walls and ceilings">Maling av vegger og tak</li>
-        <li data-no="Maling av vinduer og dører" data-en="Painting of windows and doors">Maling av vinduer og dører</li>
+        <li data-no="Vegger, tak, dører og vinduer" data-en="Walls, ceilings, doors, and windows">Vegger, tak, dører og vinduer</li>
         <li data-no="Sparkling og sliping" data-en="Filling and sanding">Sparkling og sliping</li>
         <li data-no="Grunning og beising" data-en="Priming and staining">Grunning og beising</li>
         <li data-no="Luting av overflater" data-en="Lye treatment of surfaces">Luting av overflater</li>
-        <li data-no="Tapetsering på forespørsel" data-en="Wallpapering on request">Tapetsering på forespørsel</li>
         <li data-no="Borettslag og næringsbygg" data-en="Housing associations and commercial">Borettslag og næringsbygg</li>
+        <li data-no="Tapetsering på forespørsel" data-en="Wallpapering on request">Tapetsering på forespørsel</li>
       </ul>
     </div>
     <div class="service-card">
-      <div class="service-num">03</div>
+      <div class="service-icon">⚙️</div>
       <div class="service-title" data-no="Spesialtjenester" data-en="Special services">Spesialtjenester</div>
       <ul class="service-list">
         <li data-no="Terrassebeising og oljing" data-en="Deck staining and oiling">Terrassebeising og oljing</li>
-        <li data-no="Maling av metallkonstruksjoner" data-en="Painting of metal structures">Maling av metallkonstruksjoner</li>
+        <li data-no="Metallkonstruksjoner" data-en="Metal structures">Metallkonstruksjoner</li>
         <li data-no="Impregnering av naturstein" data-en="Impregnation of natural stone">Impregnering av naturstein</li>
-        <li data-no="Flekkmaling og oppfriskninger" data-en="Spot painting and touch-ups">Flekkmaling og oppfriskninger</li>
-        <li data-no="Fjerning av gammel maling" data-en="Removal of old paint">Fjerning av gammel maling</li>
         <li data-no="Vedlikeholdsavtaler" data-en="Maintenance agreements">Vedlikeholdsavtaler</li>
         <li data-no="Boligsalg og oppussing" data-en="Home sale preparation">Boligsalg og oppussing</li>
+        <li data-no="Fjerning av gammel maling" data-en="Removal of old paint">Fjerning av gammel maling</li>
       </ul>
     </div>
   </div>
@@ -1078,34 +354,16 @@
 
 <!-- PROJECTS -->
 <section id="prosjekter" class="projects fade-up">
-  <div class="section-tag" data-no="Referanseprosjekter" data-en="Reference projects">Referanseprosjekter</div>
-  <h2 class="section-title" data-no="Noen av våre prosjekter" data-en="Some of our projects">Noen av våre prosjekter</h2>
-  <p class="projects-intro" data-no="Her er et utvalg av jobber vi har utført for fornøyde kunder. Legg gjerne til dine egne bilder her." data-en="Here is a selection of jobs we've completed for satisfied customers. Feel free to add your own photos here.">Her er et utvalg av jobber vi har utført for fornøyde kunder. Legg gjerne til dine egne bilder her.</p>
+  <div class="section-label" data-no="Referanser" data-en="Projects">Referanser</div>
+  <h2 data-no="Noen av våre prosjekter" data-en="Some of our projects">Noen av våre prosjekter</h2>
+  <p class="lead" data-no="Et utvalg jobber utført for fornøyde kunder i Østfold og omegn." data-en="A selection of jobs completed for satisfied customers in Østfold and surroundings.">Et utvalg jobber utført for fornøyde kunder i Østfold og omegn.</p>
   <div class="projects-grid">
-    <div class="project-card">
-      <div class="placeholder-img"><span data-no="Bilde 1" data-en="Photo 1">Bilde 1</span></div>
-      <div class="project-card-overlay"><div class="project-card-label" data-no="Enebolig, Fredrikstad" data-en="Detached house, Fredrikstad">Enebolig, Fredrikstad</div></div>
-    </div>
-    <div class="project-card">
-      <div class="placeholder-img"><span data-no="Bilde 2" data-en="Photo 2">Bilde 2</span></div>
-      <div class="project-card-overlay"><div class="project-card-label" data-no="Leilighet, Sarpsborg" data-en="Apartment, Sarpsborg">Leilighet, Sarpsborg</div></div>
-    </div>
-    <div class="project-card">
-      <div class="placeholder-img"><span data-no="Bilde 3" data-en="Photo 3">Bilde 3</span></div>
-      <div class="project-card-overlay"><div class="project-card-label" data-no="Næringsbygg, Moss" data-en="Commercial building, Moss">Næringsbygg, Moss</div></div>
-    </div>
-    <div class="project-card">
-      <div class="placeholder-img"><span data-no="Bilde 4" data-en="Photo 4">Bilde 4</span></div>
-      <div class="project-card-overlay"><div class="project-card-label" data-no="Rekkehus, Halden" data-en="Terraced house, Halden">Rekkehus, Halden</div></div>
-    </div>
-    <div class="project-card">
-      <div class="placeholder-img"><span data-no="Bilde 5" data-en="Photo 5">Bilde 5</span></div>
-      <div class="project-card-overlay"><div class="project-card-label" data-no="Hytte, Hvaler" data-en="Cabin, Hvaler">Hytte, Hvaler</div></div>
-    </div>
-    <div class="project-card">
-      <div class="placeholder-img"><span data-no="Bilde 6" data-en="Photo 6">Bilde 6</span></div>
-      <div class="project-card-overlay"><div class="project-card-label" data-no="Borettslag, Fredrikstad" data-en="Housing co-op, Fredrikstad">Borettslag, Fredrikstad</div></div>
-    </div>
+    <div class="project-card"><div class="project-ph" data-no="Bilde 1" data-en="Photo 1">Bilde 1</div><div class="project-label" data-no="Enebolig, Fredrikstad" data-en="Detached house, Fredrikstad">Enebolig, Fredrikstad</div></div>
+    <div class="project-card"><div class="project-ph" data-no="Bilde 2" data-en="Photo 2">Bilde 2</div><div class="project-label" data-no="Leilighet, Sarpsborg" data-en="Apartment, Sarpsborg">Leilighet, Sarpsborg</div></div>
+    <div class="project-card"><div class="project-ph" data-no="Bilde 3" data-en="Photo 3">Bilde 3</div><div class="project-label" data-no="Næringsbygg, Moss" data-en="Commercial building, Moss">Næringsbygg, Moss</div></div>
+    <div class="project-card"><div class="project-ph" data-no="Bilde 4" data-en="Photo 4">Bilde 4</div><div class="project-label" data-no="Rekkehus, Halden" data-en="Terraced house, Halden">Rekkehus, Halden</div></div>
+    <div class="project-card"><div class="project-ph" data-no="Bilde 5" data-en="Photo 5">Bilde 5</div><div class="project-label" data-no="Hytte, Hvaler" data-en="Cabin, Hvaler">Hytte, Hvaler</div></div>
+    <div class="project-card"><div class="project-ph" data-no="Bilde 6" data-en="Photo 6">Bilde 6</div><div class="project-label" data-no="Borettslag, Fredrikstad" data-en="Housing co-op, Fredrikstad">Borettslag, Fredrikstad</div></div>
   </div>
 </section>
 
@@ -1113,149 +371,95 @@
 <section id="anmeldelser" class="reviews fade-up">
   <div class="reviews-header">
     <div>
-      <div class="section-tag" data-no="Kundeanmeldelser" data-en="Customer reviews">Kundeanmeldelser</div>
-      <h2 class="section-title" data-no="Hva kundene sier" data-en="What customers say">Hva kundene sier</h2>
+      <div class="section-label" data-no="Kundeanmeldelser" data-en="Customer reviews">Kundeanmeldelser</div>
+      <h2 data-no="Hva kundene sier" data-en="What customers say">Hva kundene sier</h2>
     </div>
-    <div class="reviews-score">
-      <div>
-        <div class="score-num">5.0</div>
-        <div class="stars">★★★★★</div>
-        <div class="score-sub" data-no="Basert på Google-anmeldelser" data-en="Based on Google reviews">Basert på Google-anmeldelser</div>
-      </div>
+    <div class="google-score">
+      <div class="score-num">5.0</div>
+      <div><div class="stars">★★★★★</div><div class="score-sub" data-no="Google-anmeldelser" data-en="Google reviews">Google-anmeldelser</div></div>
     </div>
   </div>
   <div class="reviews-grid">
     <div class="review-card">
       <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-no="&quot;Veldig fornøyd med malejobben. Ryddige, punktlige og hyggelige å samarbeide med. Resultatet ble over forventning!&quot;" data-en="&quot;Very happy with the painting job. Tidy, punctual, and pleasant to work with. The result exceeded expectations!&quot;">"Veldig fornøyd med malejobben. Ryddige, punktlige og hyggelige å samarbeide med. Resultatet ble over forventning!"</p>
+      <p class="review-text" data-no="&quot;Veldig fornøyd med malejobben. Ryddige, punktlige og hyggelige å samarbeide med.&quot;" data-en="&quot;Very happy with the painting job. Tidy, punctual, and pleasant to work with.&quot;">"Veldig fornøyd med malejobben. Ryddige, punktlige og hyggelige å samarbeide med."</p>
       <div class="review-author">— Anders Haugen</div>
     </div>
     <div class="review-card">
       <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-no="&quot;Rask kommunikasjon, god pris og proft resultat. De malte innendørs og utendørs og alt ble levert til avtalt tid.&quot;" data-en="&quot;Fast communication, good price and professional result. They painted indoors and outdoors and everything was delivered on time.&quot;">"Rask kommunikasjon, god pris og proft resultat. De malte innendørs og utendørs og alt ble levert til avtalt tid."</p>
+      <p class="review-text" data-no="&quot;Rask kommunikasjon, god pris og proft resultat. Alt levert til avtalt tid.&quot;" data-en="&quot;Fast communication, good price and professional result. Everything delivered on time.&quot;">"Rask kommunikasjon, god pris og proft resultat. Alt levert til avtalt tid."</p>
       <div class="review-author">— Silje Andreassen</div>
     </div>
     <div class="review-card">
       <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-no="&quot;Brukte PrimMaler til å male fasaden og garasjen. Pålitelige, grundige og hyggelige. Kan anbefales på det varmeste!&quot;" data-en="&quot;Used PrimMaler to paint the facade and garage. Reliable, thorough, and friendly. Highly recommended!&quot;">"Brukte PrimMaler til å male fasaden og garasjen. Pålitelige, grundige og hyggelige. Kan anbefales på det varmeste!"</p>
+      <p class="review-text" data-no="&quot;Pålitelige, grundige og hyggelige. Fasaden ser fantastisk ut — anbefales på det varmeste!&quot;" data-en="&quot;Reliable, thorough, and friendly. The facade looks fantastic — highly recommended!&quot;">"Pålitelige, grundige og hyggelige. Fasaden ser fantastisk ut — anbefales på det varmeste!"</p>
       <div class="review-author">— Kjetil Bergstrøm</div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-no="&quot;Superb jobb med innvendig maling av leiligheten vår. Detaljer ble tatt på alvor og vi er strålende fornøyde.&quot;" data-en="&quot;Superb job with interior painting of our apartment. Details were taken seriously and we are absolutely thrilled.&quot;">"Superb jobb med innvendig maling av leiligheten vår. Detaljer ble tatt på alvor og vi er strålende fornøyde."</p>
-      <div class="review-author">— Marta Lie</div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-no="&quot;Proff gjennomføring fra A til Å. Fast kontaktperson gjennom hele prosjektet, noe som gjør det enkelt og trygt.&quot;" data-en="&quot;Professional execution from A to Z. Dedicated contact person throughout the project, which makes it easy and reassuring.&quot;">"Proff gjennomføring fra A til Å. Fast kontaktperson gjennom hele prosjektet, noe som gjør det enkelt og trygt."</p>
-      <div class="review-author">— Tone Nordahl</div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-no="&quot;Malte terassen og vindskiene på hytta vår. Dukket opp til avtalt tid og leverte topp kvalitet. Takk!&quot;" data-en="&quot;Painted the deck and barge boards on our cabin. Showed up on time and delivered top quality. Thank you!&quot;">"Malte terassen og vindskiene på hytta vår. Dukket opp til avtalt tid og leverte topp kvalitet. Takk!"</p>
-      <div class="review-author">— Per Arne Dahl</div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
 <section id="faq" class="faq fade-up">
-  <div class="section-tag" data-no="Spørsmål og svar" data-en="Questions and answers">Spørsmål og svar</div>
-  <h2 class="section-title" data-no="Ofte stilte spørsmål" data-en="Frequently asked questions">Ofte stilte spørsmål</h2>
-  <div class="faq-grid">
+  <div class="section-label" data-no="Vanlige spørsmål" data-en="FAQ">Vanlige spørsmål</div>
+  <h2 data-no="Ofte stilte spørsmål" data-en="Frequently asked questions">Ofte stilte spørsmål</h2>
+  <div class="faq-layout">
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">
-        <span data-no="Hva koster det å male et hus?" data-en="How much does it cost to paint a house?">Hva koster det å male et hus?</span>
-        <div class="faq-toggle">+</div>
-      </div>
-      <div class="faq-a" data-no="Prisen varierer ut fra størrelse og tilstand. Et gjennomsnittlig hus i vår region ligger typisk på 70 000–130 000 kr inkl. MVA, materialer og stillas. Ta kontakt for et gratis estimat." data-en="The price varies based on size and condition. An average house in our region typically ranges from 70,000–130,000 NOK incl. VAT, materials, and scaffolding. Contact us for a free estimate.">Prisen varierer ut fra størrelse og tilstand. Et gjennomsnittlig hus i vår region ligger typisk på 70 000–130 000 kr inkl. MVA, materialer og stillas. Ta kontakt for et gratis estimat.</div>
+      <div class="faq-q"><span data-no="Hva koster det å male et hus?" data-en="How much does it cost to paint a house?">Hva koster det å male et hus?</span><div class="faq-plus">+</div></div>
+      <div class="faq-a" data-no="Et gjennomsnittlig hus i vår region koster typisk 70 000–130 000 kr inkl. MVA, materialer og stillas. Prisen settes alltid individuelt — ta kontakt for et gratis estimat." data-en="An average house in our region typically costs 70,000–130,000 NOK incl. VAT, materials, and scaffolding. The price is always set individually — contact us for a free estimate.">Et gjennomsnittlig hus i vår region koster typisk 70 000–130 000 kr inkl. MVA, materialer og stillas. Prisen settes alltid individuelt — ta kontakt for et gratis estimat.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">
-        <span data-no="Gir dere garanti på arbeidet?" data-en="Do you offer a guarantee on the work?">Gir dere garanti på arbeidet?</span>
-        <div class="faq-toggle">+</div>
-      </div>
-      <div class="faq-a" data-no="Ja, alt utført arbeid er dekket av garanti. I tillegg har produktene vi bruker produsentgaranti." data-en="Yes, all completed work is covered by warranty. Additionally, the products we use come with manufacturer guarantees.">Ja, alt utført arbeid er dekket av garanti. I tillegg har produktene vi bruker produsentgaranti.</div>
+      <div class="faq-q"><span data-no="Jobber dere med fastpris?" data-en="Do you work with fixed prices?">Jobber dere med fastpris?</span><div class="faq-plus">+</div></div>
+      <div class="faq-a" data-no="Ja, alltid. Fastprisen inkluderer alt: arbeid, materialer, forsikring, stillas og avgifter. Ingen overraskelser etterpå." data-en="Yes, always. The fixed price includes everything: labor, materials, insurance, scaffolding, and taxes. No surprises afterwards.">Ja, alltid. Fastprisen inkluderer alt: arbeid, materialer, forsikring, stillas og avgifter. Ingen overraskelser etterpå.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">
-        <span data-no="Jobber dere med fastpris eller timepris?" data-en="Do you work with fixed price or hourly rate?">Jobber dere med fastpris eller timepris?</span>
-        <div class="faq-toggle">+</div>
-      </div>
-      <div class="faq-a" data-no="Vi gir alltid fastpris som inkluderer alt: arbeid, materialer, forsikring, stillas og skatter. Ingen overraskelser etterpå." data-en="We always provide a fixed price that includes everything: labor, materials, insurance, scaffolding, and taxes. No surprises afterwards.">Vi gir alltid fastpris som inkluderer alt: arbeid, materialer, forsikring, stillas og skatter. Ingen overraskelser etterpå.</div>
+      <div class="faq-q"><span data-no="Gir dere garanti?" data-en="Do you offer a guarantee?">Gir dere garanti?</span><div class="faq-plus">+</div></div>
+      <div class="faq-a" data-no="Ja, alt utført arbeid er dekket av garanti. Produktene vi bruker har også produsentgaranti." data-en="Yes, all completed work is covered by warranty. The products we use also come with manufacturer guarantees.">Ja, alt utført arbeid er dekket av garanti. Produktene vi bruker har også produsentgaranti.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">
-        <span data-no="Hvor lang tid tar det å male et hus?" data-en="How long does it take to paint a house?">Hvor lang tid tar det å male et hus?</span>
-        <div class="faq-toggle">+</div>
-      </div>
-      <div class="faq-a" data-no="Vask tar gjerne 1 dag. Etter tørketid (3–10 dager avhengig av vær) tar selve malejobben 4–7 arbeidsdager." data-en="Washing typically takes 1 day. After drying time (3–10 days depending on weather), the actual painting job takes 4–7 working days.">Vask tar gjerne 1 dag. Etter tørketid (3–10 dager avhengig av vær) tar selve malejobben 4–7 arbeidsdager.</div>
+      <div class="faq-q"><span data-no="Må jeg være hjemme?" data-en="Do I need to be home?">Må jeg være hjemme?</span><div class="faq-plus">+</div></div>
+      <div class="faq-a" data-no="Nei. Vi trenger kun tilgang til utendørs kran og strøm — alt annet ordner vi selv." data-en="No. We only need access to an outdoor tap and electricity — we take care of everything else.">Nei. Vi trenger kun tilgang til utendørs kran og strøm — alt annet ordner vi selv.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">
-        <span data-no="Må jeg være hjemme under arbeidet?" data-en="Do I need to be home during the work?">Må jeg være hjemme under arbeidet?</span>
-        <div class="faq-toggle">+</div>
-      </div>
-      <div class="faq-a" data-no="Nei, det er ikke nødvendig. Vi trenger kun tilgang til en utendørs kran (for vask) og strøm. Alt annet ordner vi selv." data-en="No, it's not necessary. We only need access to an outdoor tap (for washing) and electricity. We take care of everything else.">Nei, det er ikke nødvendig. Vi trenger kun tilgang til en utendørs kran (for vask) og strøm. Alt annet ordner vi selv.</div>
+      <div class="faq-q"><span data-no="Hvor lang tid tar det?" data-en="How long does it take?">Hvor lang tid tar det?</span><div class="faq-plus">+</div></div>
+      <div class="faq-a" data-no="Vask tar ca. 1 dag. Etter 3–10 dagers tørketid tar malejobben 4–7 arbeidsdager avhengig av størrelse." data-en="Washing takes about 1 day. After 3–10 days of drying time, the painting job takes 4–7 working days depending on size.">Vask tar ca. 1 dag. Etter 3–10 dagers tørketid tar malejobben 4–7 arbeidsdager avhengig av størrelse.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">
-        <span data-no="Hjelper dere med fargevalg?" data-en="Do you help with color selection?">Hjelper dere med fargevalg?</span>
-        <div class="faq-toggle">+</div>
-      </div>
-      <div class="faq-a" data-no="Vi hjelper med å velge riktige materialer og produkter. For fargevalg anbefaler vi å bruke fargekart fra produsenten, men vi kan måle eksisterende farge med sensor om du vil beholde samme farge." data-en="We help choose the right materials and products. For color selection, we recommend using color charts from the manufacturer, but we can measure existing color with a sensor if you want to keep the same color.">Vi hjelper med å velge riktige materialer og produkter. For fargevalg anbefaler vi å bruke fargekart fra produsenten, men vi kan måle eksisterende farge med sensor om du vil beholde samme farge.</div>
+      <div class="faq-q"><span data-no="Hjelper dere med fargevalg?" data-en="Do you help with color selection?">Hjelper dere med fargevalg?</span><div class="faq-plus">+</div></div>
+      <div class="faq-a" data-no="Vi hjelper med riktige materialer og produkter. For farger anbefaler vi produsentens fargekart, men vi kan måle eksisterende farge med sensor." data-en="We help with the right materials and products. For colors, we recommend the manufacturer's color charts, but we can measure existing color with a sensor.">Vi hjelper med riktige materialer og produkter. For farger anbefaler vi produsentens fargekart, men vi kan måle eksisterende farge med sensor.</div>
     </div>
   </div>
 </section>
 
-<!-- CTA BANNER -->
+<!-- CTA -->
 <div class="cta-banner fade-up">
   <div>
     <h2 data-no="Klar for et <em>frisk nytt</em> utseende?" data-en="Ready for a <em>fresh new</em> look?">Klar for et <em>frisk nytt</em> utseende?</h2>
-    <p data-no="Kontakt oss for et gratis og uforpliktende tilbud. Vi svarer innen 24 timer." data-en="Contact us for a free, no-obligation quote. We respond within 24 hours.">Kontakt oss for et gratis og uforpliktende tilbud. Vi svarer innen 24 timer.</p>
+    <p data-no="Gratis estimat basert på bilder og beskrivelse. Vi svarer innen 24 timer." data-en="Free estimate based on photos and description. We respond within 24 hours.">Gratis estimat basert på bilder og beskrivelse. Vi svarer innen 24 timer.</p>
   </div>
-  <a href="#kontakt" class="btn-gold" data-no="Få gratis tilbud nå" data-en="Get a free quote now">Få gratis tilbud nå</a>
+  <a href="#kontakt" class="btn-white" data-no="Få gratis tilbud" data-en="Get a free quote">Få gratis tilbud</a>
 </div>
 
 <!-- CONTACT -->
 <div id="kontakt" class="contact">
   <div class="contact-info fade-up">
-    <div class="section-tag" data-no="Ta kontakt" data-en="Get in touch">Ta kontakt</div>
-    <h2 class="section-title" data-no="La oss snakke om ditt prosjekt" data-en="Let's talk about your project">La oss snakke om ditt prosjekt</h2>
-    <p data-no="Send oss en melding eller ring direkte. Vi gir deg et gratis estimat basert på bilder og beskrivelse – uten at du trenger å være tilstede." data-en="Send us a message or call directly. We give you a free estimate based on photos and description – no need for you to be present.">Send oss en melding eller ring direkte. Vi gir deg et gratis estimat basert på bilder og beskrivelse – uten at du trenger å være tilstede.</p>
+    <div class="section-label" data-no="Ta kontakt" data-en="Get in touch">Ta kontakt</div>
+    <h2 data-no="La oss snakke om ditt prosjekt" data-en="Let's talk about your project">La oss snakke om ditt prosjekt</h2>
+    <p data-no="Send oss en melding eller ring direkte. Vi gir deg et gratis estimat basert på bilder og beskrivelse — uten befaring." data-en="Send us a message or call directly. We give you a free estimate based on photos and description — no site visit needed.">Send oss en melding eller ring direkte. Vi gir deg et gratis estimat basert på bilder og beskrivelse — uten befaring.</p>
     <div class="contact-details">
-      <div class="contact-row">
-        <div class="contact-icon">📞</div>
-        <div class="contact-val"><a href="tel:+4700000000">+47 000 00 000</a></div>
-      </div>
-      <div class="contact-row">
-        <div class="contact-icon">✉️</div>
-        <div class="contact-val"><a href="mailto:post@primmaler.no">post@primmaler.no</a></div>
-      </div>
-      <div class="contact-row">
-        <div class="contact-icon">📍</div>
-        <div class="contact-val" data-no="Fredrikstad og omegn" data-en="Fredrikstad and surroundings">Fredrikstad og omegn</div>
-      </div>
+      <div class="contact-row"><div class="c-icon">📞</div><div class="c-val"><a href="tel:+4700000000">+47 000 00 000</a></div></div>
+      <div class="contact-row"><div class="c-icon">✉️</div><div class="c-val"><a href="mailto:post@primmaler.no">post@primmaler.no</a></div></div>
+      <div class="contact-row"><div class="c-icon">📍</div><div class="c-val" data-no="Fredrikstad og omegn" data-en="Fredrikstad and surroundings">Fredrikstad og omegn</div></div>
     </div>
   </div>
   <div class="contact-form fade-up">
-    <div class="section-tag" data-no="Skriv til oss" data-en="Write to us">Skriv til oss</div>
-    <h3 class="section-title" style="font-size:1.6rem" data-no="Gratis tilbud" data-en="Free quote">Gratis tilbud</h3>
+    <div class="section-label" data-no="Gratis tilbud" data-en="Free quote">Gratis tilbud</div>
+    <h2 data-no="Skriv til oss" data-en="Write to us">Skriv til oss</h2>
     <br>
     <div class="form-row">
-      <div class="form-group">
-        <label data-no="Navn" data-en="Name">Navn</label>
-        <input type="text" placeholder="Ola Nordmann">
-      </div>
-      <div class="form-group">
-        <label data-no="Telefon" data-en="Phone">Telefon</label>
-        <input type="tel" placeholder="+47 000 00 000">
-      </div>
+      <div class="form-group"><label data-no="Navn" data-en="Name">Navn</label><input type="text" placeholder="Ola Nordmann"></div>
+      <div class="form-group"><label data-no="Telefon" data-en="Phone">Telefon</label><input type="tel" placeholder="+47 000 00 000"></div>
     </div>
-    <div class="form-group">
-      <label data-no="E-post" data-en="Email">E-post</label>
-      <input type="email" placeholder="post@eksempel.no">
-    </div>
+    <div class="form-group"><label data-no="E-post" data-en="Email">E-post</label><input type="email" placeholder="post@eksempel.no"></div>
     <div class="form-group">
       <label data-no="Type oppdrag" data-en="Type of job">Type oppdrag</label>
       <select>
@@ -1267,19 +471,16 @@
         <option data-no="Annet" data-en="Other">Annet</option>
       </select>
     </div>
-    <div class="form-group">
-      <label data-no="Beskrivelse" data-en="Description">Beskrivelse</label>
-      <textarea placeholder="Beskriv oppdraget kort – størrelse, tilstand, ønsker..."></textarea>
-    </div>
+    <div class="form-group"><label data-no="Beskrivelse" data-en="Description">Beskrivelse</label><textarea placeholder="Beskriv oppdraget kort – størrelse, tilstand, ønsker..."></textarea></div>
     <button class="form-submit" data-no="Send forespørsel" data-en="Send request">Send forespørsel</button>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand">
-    <a href="#" class="nav-logo">Prim<span>Maler</span></a>
-    <p data-no="Profesjonelt malerfirma i Fredrikstad og omegn. Innvendig og utvendig maling av høy kvalitet." data-en="Professional painting company in Fredrikstad and surroundings. High-quality interior and exterior painting.">Profesjonelt malerfirma i Fredrikstad og omegn. Innvendig og utvendig maling av høy kvalitet.</p>
+  <div>
+    <a href="#" class="nav-logo footer-logo">Prim<span>Maler</span></a>
+    <p data-no="Profesjonelt malerfirma i Fredrikstad og omegn. Innvendig og utvendig maling av høy kvalitet." data-en="Professional painting company in Fredrikstad. High-quality interior and exterior painting.">Profesjonelt malerfirma i Fredrikstad og omegn. Innvendig og utvendig maling av høy kvalitet.</p>
   </div>
   <div class="footer-col">
     <h4 data-no="Tjenester" data-en="Services">Tjenester</h4>
@@ -1305,72 +506,37 @@
 </div>
 
 <script>
-  // LANGUAGE SWITCHING
-  let currentLang = 'no';
-
-  function setLang(lang) {
-    currentLang = lang;
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
-    document.documentElement.lang = lang;
-
-    document.querySelectorAll('[data-no]').forEach(el => {
-      const text = el.getAttribute('data-' + lang);
-      if (text) el.innerHTML = text;
-    });
-
-    // Handle select options
-    document.querySelectorAll('select option').forEach(opt => {
-      const text = opt.getAttribute('data-' + lang);
-      if (text) opt.textContent = text;
-    });
-
-    // Update placeholders
-    const placeholders = {
-      no: { name: 'Ola Nordmann', phone: '+47 000 00 000', email: 'post@eksempel.no', desc: 'Beskriv oppdraget kort – størrelse, tilstand, ønsker...' },
-      en: { name: 'John Smith', phone: '+47 000 00 000', email: 'email@example.com', desc: 'Briefly describe the job – size, condition, wishes...' }
-    };
-    const p = placeholders[lang];
-    const inputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
-    if (inputs[0]) inputs[0].placeholder = p.name;
-    if (inputs[1]) inputs[1].placeholder = p.phone;
-    if (inputs[2]) inputs[2].placeholder = p.email;
-    if (inputs[3]) inputs[3].placeholder = p.desc;
-  }
-
-  // FAQ TOGGLE
-  function toggleFaq(el) {
-    const isOpen = el.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) el.classList.add('open');
-  }
-
-  // SCROLL ANIMATIONS
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // MOBILE MENU
-  function toggleMenu() {
-    const links = document.querySelector('.nav-links');
-    if (links.style.display === 'flex') {
-      links.style.display = 'none';
-    } else {
-      links.style.cssText = 'display:flex; flex-direction:column; position:fixed; top:72px; left:0; right:0; background:var(--cream); padding:24px 24px 40px; gap:20px; border-bottom:1px solid rgba(74,82,64,0.12); z-index:99;';
-    }
-  }
-
-  // NAV scroll shadow
-  window.addEventListener('scroll', () => {
-    document.querySelector('nav').style.boxShadow = window.scrollY > 20 ? '0 2px 20px rgba(0,0,0,0.08)' : 'none';
-  });
-
-  // Form submit
-  document.querySelector('.form-submit').addEventListener('click', () => {
-    const msg = currentLang === 'no' ? 'Takk! Vi tar kontakt innen 24 timer.' : 'Thank you! We\'ll be in touch within 24 hours.';
-    alert(msg);
-  });
+let currentLang='no';
+function setLang(lang){
+  currentLang=lang;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-no]').forEach(el=>{const t=el.getAttribute('data-'+lang);if(t)el.innerHTML=t;});
+  document.querySelectorAll('select option').forEach(opt=>{const t=opt.getAttribute('data-'+lang);if(t)opt.textContent=t;});
+  const ph=lang==='no'
+    ?['Ola Nordmann','+47 000 00 000','post@eksempel.no','Beskriv oppdraget kort – størrelse, tilstand, ønsker...']
+    :['John Smith','+47 000 00 000','email@example.com','Briefly describe the job – size, condition, wishes...'];
+  document.querySelectorAll('.contact-form input,.contact-form textarea').forEach((el,i)=>{if(ph[i])el.placeholder=ph[i];});
+}
+function toggleFaq(el){
+  const open=el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!open)el.classList.add('open');
+}
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+function toggleMenu(){
+  const l=document.querySelector('.nav-links');
+  l.style.cssText=l.style.display==='flex'?''
+    :'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:#fff;padding:24px 24px 36px;gap:18px;border-bottom:1px solid var(--border);z-index:99;';
+}
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.boxShadow=scrollY>10?'0 2px 16px rgba(14,35,48,0.08)':'none';
+});
+document.querySelector('.form-submit').addEventListener('click',()=>{
+  alert(currentLang==='no'?'Takk! Vi tar kontakt innen 24 timer.':"Thank you! We'll be in touch within 24 hours.");
+});
 </script>
 </body>
 </html>
