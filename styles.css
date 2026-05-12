@@ -161,7 +161,7 @@ h1,
 h2,
 h3 {
   margin: 0;
-  line-height: 1.02;
+  line-height: 1.08;
   letter-spacing: -0.04em;
 }
 
@@ -172,11 +172,11 @@ h2 {
 
 h1 {
   max-width: 11ch;
-  font-size: clamp(3rem, 7vw, 5.4rem);
+  font-size: clamp(2.45rem, 5vw, 4.35rem);
 }
 
 h2 {
-  font-size: clamp(2.1rem, 4vw, 3.6rem);
+  font-size: clamp(1.8rem, 3.2vw, 2.85rem);
 }
 
 .hero-text,
@@ -455,7 +455,7 @@ h2 {
 .area-grid h3,
 .timeline h3,
 .contact-panel strong {
-  font-size: 1.45rem;
+  font-size: 1.22rem;
 }
 
 .service-card ul {
@@ -515,8 +515,8 @@ h2 {
 .quote {
   margin: 0;
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: clamp(1.75rem, 3vw, 2.4rem);
-  line-height: 1.15;
+  font-size: clamp(1.45rem, 2.2vw, 1.95rem);
+  line-height: 1.22;
 }
 
 .quote-author {
