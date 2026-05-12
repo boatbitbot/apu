@@ -15,6 +15,55 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Nordjord Maling",
+        "url": "https://github.com/boatbitbot/apu",
+        "image": "https://github.com/boatbitbot/apu",
+        "description": "Painting services in Norway for interior and exterior surfaces with earthy colour palettes.",
+        "telephone": "+47 400 00 000",
+        "email": "hei@nordjordmaling.no",
+        "areaServed": [
+          "Oslo",
+          "Bergen",
+          "Trondheim",
+          "Norway"
+        ],
+        "availableLanguage": [
+          "no",
+          "en"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+47 400 00 000",
+          "email": "hei@nordjordmaling.no",
+          "contactType": "customer service",
+          "areaServed": "NO",
+          "availableLanguage": [
+            "Norwegian",
+            "English"
+          ]
+        },
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Interior painting"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Exterior painting"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="site-shell">
@@ -24,29 +73,79 @@
             <span class="brand-mark">NJ</span>
             <span class="brand-text">Nordjord Maling</span>
           </a>
-          <div class="topbar-links">
-            <a href="#tjenester">Tjenester</a>
-            <a href="#prosjekt">Prosess</a>
-            <a href="#kontakt">Kontakt</a>
+          <div class="topbar-controls">
+            <div class="topbar-links">
+              <a href="#tjenester" data-no="Tjenester" data-en="Services">Tjenester</a>
+              <a href="#prosjekt" data-no="Prosess" data-en="Process">Prosess</a>
+              <a href="#kontakt" data-no="Kontakt" data-en="Contact">Kontakt</a>
+            </div>
+            <div class="lang-switch" aria-label="Language switcher">
+              <button class="lang-button is-active" type="button" data-lang="no">NO</button>
+              <button class="lang-button" type="button" data-lang="en">EN</button>
+            </div>
           </div>
         </nav>
 
         <section class="hero-grid" id="top">
           <div class="hero-copy">
-            <p class="eyebrow">For hjem, hytter og fasader i Norge</p>
-            <h1>Malerarbeid som holder seg vakkert gjennom norske årstider.</h1>
-            <p class="hero-text">
+            <p
+              class="eyebrow"
+              data-no="For hjem, hytter og fasader i Norge"
+              data-en="For homes, cabins and facades across Norway"
+            >
+              For hjem, hytter og fasader i Norge
+            </p>
+            <h1
+              data-no="Malerarbeid som holder seg vakkert gjennom norske årstider."
+              data-en="Painting work that stays beautiful through Norwegian seasons."
+            >
+              Malerarbeid som holder seg vakkert gjennom norske årstider.
+            </h1>
+            <p
+              class="hero-text"
+              data-no="Vi maler innvendig og utvendig med rolige jordtoner, grundig forarbeid og løsninger tilpasset fukt, vind og skiftende lys."
+              data-en="We paint interiors and exteriors with calm earth tones, careful preparation and solutions adapted to moisture, wind and changing light."
+            >
               Vi maler innvendig og utvendig med rolige jordtoner, grundig
               forarbeid og løsninger tilpasset fukt, vind og skiftende lys.
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#kontakt">Be om gratis befaring</a>
-              <a class="button button-secondary" href="#tjenester">Se tjenester</a>
+              <a
+                class="button button-primary"
+                href="#kontakt"
+                data-no="Be om gratis befaring"
+                data-en="Request a free consultation"
+              >
+                Be om gratis befaring
+              </a>
+              <a
+                class="button button-secondary"
+                href="#tjenester"
+                data-no="Se tjenester"
+                data-en="See services"
+              >
+                Se tjenester
+              </a>
             </div>
             <ul class="hero-points">
-              <li>Innvendig maling for bolig og næring</li>
-              <li>Utvendig maling for hus, hytter og fasader</li>
-              <li>Fargevalg inspirert av jord, stein og skandinavisk natur</li>
+              <li
+                data-no="Innvendig maling for bolig og næring"
+                data-en="Interior painting for homes and commercial spaces"
+              >
+                Innvendig maling for bolig og næring
+              </li>
+              <li
+                data-no="Utvendig maling for hus, hytter og fasader"
+                data-en="Exterior painting for houses, cabins and facades"
+              >
+                Utvendig maling for hus, hytter og fasader
+              </li>
+              <li
+                data-no="Fargevalg inspirert av jord, stein og skandinavisk natur"
+                data-en="Colour palettes inspired by earth, stone and Scandinavian nature"
+              >
+                Fargevalg inspirert av jord, stein og skandinavisk natur
+              </li>
             </ul>
           </div>
 
@@ -54,21 +153,38 @@
             <div class="paint-card paint-card-large">
               <span class="swatch swatch-sand"></span>
               <div>
-                <p>Innvendig ro</p>
-                <strong>Sand, kalk og varm stein</strong>
+                <p data-no="Innvendig ro" data-en="Interior calm">Innvendig ro</p>
+                <strong
+                  data-no="Sand, kalk og varm stein"
+                  data-en="Sand, limewash and warm stone"
+                >
+                  Sand, kalk og varm stein
+                </strong>
               </div>
             </div>
             <div class="paint-card paint-card-offset">
               <span class="swatch swatch-moss"></span>
               <div>
-                <p>Utvendig styrke</p>
-                <strong>Mose, jord og skifer</strong>
+                <p data-no="Utvendig styrke" data-en="Exterior strength">Utvendig styrke</p>
+                <strong
+                  data-no="Mose, jord og skifer"
+                  data-en="Moss, earth and slate"
+                >
+                  Mose, jord og skifer
+                </strong>
               </div>
             </div>
             <div class="visual-panel">
               <div class="panel-copy">
-                <p>Tilpasset norsk klima</p>
-                <strong>Fra Oslo til Vestlandet</strong>
+                <p data-no="Tilpasset norsk klima" data-en="Built for Norwegian weather">
+                  Tilpasset norsk klima
+                </p>
+                <strong
+                  data-no="Fra Oslo til Vestlandet"
+                  data-en="From Oslo to the west coast"
+                >
+                  Fra Oslo til Vestlandet
+                </strong>
               </div>
             </div>
           </div>
@@ -78,51 +194,118 @@
       <main>
         <section class="stats-strip">
           <article>
-            <strong>Innvendig</strong>
-            <p>Vegger, tak, listverk, trapper og detaljer med rene avslutninger.</p>
+            <strong data-no="Innvendig" data-en="Interior">Innvendig</strong>
+            <p
+              data-no="Vegger, tak, listverk, trapper og detaljer med rene avslutninger."
+              data-en="Walls, ceilings, trim, stairs and details with clean finishing."
+            >
+              Vegger, tak, listverk, trapper og detaljer med rene avslutninger.
+            </p>
           </article>
           <article>
-            <strong>Utvendig</strong>
-            <p>Grunning, vask, skraping og slitesterk overflate for norsk vær.</p>
+            <strong data-no="Utvendig" data-en="Exterior">Utvendig</strong>
+            <p
+              data-no="Grunning, vask, skraping og slitesterk overflate for norsk vær."
+              data-en="Priming, washing, scraping and durable finishes for Norwegian weather."
+            >
+              Grunning, vask, skraping og slitesterk overflate for norsk vær.
+            </p>
           </article>
           <article>
-            <strong>Fargeråd</strong>
-            <p>Vi bygger paletter som passer treverk, mur, stein og naturlig lys.</p>
+            <strong data-no="Fargeråd" data-en="Colour guidance">Fargeråd</strong>
+            <p
+              data-no="Vi bygger paletter som passer treverk, mur, stein og naturlig lys."
+              data-en="We build palettes that suit timber, masonry, stone and natural light."
+            >
+              Vi bygger paletter som passer treverk, mur, stein og naturlig lys.
+            </p>
           </article>
         </section>
 
         <section class="section services" id="tjenester">
           <div class="section-heading">
-            <p class="eyebrow">Tjenester</p>
-            <h2>To områder, én standard: nøye forarbeid og harmoniske farger.</h2>
+            <p class="eyebrow" data-no="Tjenester" data-en="Services">Tjenester</p>
+            <h2
+              data-no="To områder, én standard: nøye forarbeid og harmoniske farger."
+              data-en="Two service areas, one standard: careful preparation and harmonious colours."
+            >
+              To områder, én standard: nøye forarbeid og harmoniske farger.
+            </h2>
           </div>
 
           <div class="service-grid">
             <article class="service-card">
-              <p class="service-label">Innvendig maling</p>
-              <h3>Rolige rom med varme, naturlige toner.</h3>
-              <p>
+              <p class="service-label" data-no="Innvendig maling" data-en="Interior painting">
+                Innvendig maling
+              </p>
+              <h3
+                data-no="Rolige rom med varme, naturlige toner."
+                data-en="Calm rooms with warm, natural tones."
+              >
+                Rolige rom med varme, naturlige toner.
+              </h3>
+              <p
+                data-no="Vi maler stue, kjøkken, soverom, gang og kontor med fokus på lys, materialer og overflater som føles rolige over tid."
+                data-en="We paint living rooms, kitchens, bedrooms, hallways and offices with close attention to light, materials and finishes that feel calm over time."
+              >
                 Vi maler stue, kjøkken, soverom, gang og kontor med fokus på
                 lys, materialer og overflater som føles rolige over tid.
               </p>
               <ul>
-                <li>Vegger, tak og listverk</li>
-                <li>Fornying av kjøkkenfronter og panel</li>
-                <li>Fargesetting for moderne og klassiske hjem</li>
+                <li data-no="Vegger, tak og listverk" data-en="Walls, ceilings and trim">
+                  Vegger, tak og listverk
+                </li>
+                <li
+                  data-no="Fornying av kjøkkenfronter og panel"
+                  data-en="Refresh of kitchen fronts and panel surfaces"
+                >
+                  Fornying av kjøkkenfronter og panel
+                </li>
+                <li
+                  data-no="Fargesetting for moderne og klassiske hjem"
+                  data-en="Colour direction for modern and classic homes"
+                >
+                  Fargesetting for moderne og klassiske hjem
+                </li>
               </ul>
             </article>
 
             <article class="service-card service-card-dark">
-              <p class="service-label">Utvendig maling</p>
-              <h3>Beskyttelse og uttrykk som tåler norsk klima.</h3>
-              <p>
+              <p class="service-label" data-no="Utvendig maling" data-en="Exterior painting">
+                Utvendig maling
+              </p>
+              <h3
+                data-no="Beskyttelse og uttrykk som tåler norsk klima."
+                data-en="Protection and finish that stand up to Norwegian weather."
+              >
+                Beskyttelse og uttrykk som tåler norsk klima.
+              </h3>
+              <p
+                data-no="Vi hjelper med fasader, hytter og uterom, og velger produkter og farger som fungerer med vær, treverk og lokal byggestil."
+                data-en="We work on facades, cabins and outdoor spaces, choosing products and colours that fit the weather, timber and local building style."
+              >
                 Vi hjelper med fasader, hytter og uterom, og velger produkter
                 og farger som fungerer med vær, treverk og lokal byggestil.
               </p>
               <ul>
-                <li>Hus, hytter, gjerder og detaljer</li>
-                <li>Vask, skraping, grunning og toppstrøk</li>
-                <li>Værbestandige løsninger for kyst og innland</li>
+                <li
+                  data-no="Hus, hytter, gjerder og detaljer"
+                  data-en="Houses, cabins, fences and exterior details"
+                >
+                  Hus, hytter, gjerder og detaljer
+                </li>
+                <li
+                  data-no="Vask, skraping, grunning og toppstrøk"
+                  data-en="Washing, scraping, priming and top coats"
+                >
+                  Vask, skraping, grunning og toppstrøk
+                </li>
+                <li
+                  data-no="Værbestandige løsninger for kyst og innland"
+                  data-en="Weather-ready solutions for coastal and inland properties"
+                >
+                  Værbestandige løsninger for kyst og innland
+                </li>
               </ul>
             </article>
           </div>
@@ -130,112 +313,344 @@
 
         <section class="section palette-section">
           <div class="section-heading narrow">
-            <p class="eyebrow">Jordpalett</p>
-            <h2>Farger hentet fra norsk natur, ikke fra tilfeldige trender.</h2>
+            <p class="eyebrow" data-no="Jordpalett" data-en="Earth palette">Jordpalett</p>
+            <h2
+              data-no="Farger hentet fra norsk natur, ikke fra tilfeldige trender."
+              data-en="Colours drawn from Norwegian nature, not short-lived trends."
+            >
+              Farger hentet fra norsk natur, ikke fra tilfeldige trender.
+            </h2>
           </div>
 
           <div class="palette-grid">
             <article>
               <span class="palette-chip chip-sand"></span>
-              <h3>Sand</h3>
-              <p>Myk base for lyse rom og åpne oppholdsarealer.</p>
+              <h3 data-no="Sand" data-en="Sand">Sand</h3>
+              <p
+                data-no="Myk base for lyse rom og åpne oppholdsarealer."
+                data-en="A soft base for light rooms and open living spaces."
+              >
+                Myk base for lyse rom og åpne oppholdsarealer.
+              </p>
             </article>
             <article>
               <span class="palette-chip chip-clay"></span>
-              <h3>Leire</h3>
-              <p>Gir varme og dybde til entré, stue og spiseplass.</p>
+              <h3 data-no="Leire" data-en="Clay">Leire</h3>
+              <p
+                data-no="Gir varme og dybde til entré, stue og spiseplass."
+                data-en="Brings warmth and depth to the entry, lounge and dining area."
+              >
+                Gir varme og dybde til entré, stue og spiseplass.
+              </p>
             </article>
             <article>
               <span class="palette-chip chip-moss"></span>
-              <h3>Mose</h3>
-              <p>Naturlig grønn tone til detaljer, hytter og uterom.</p>
+              <h3 data-no="Mose" data-en="Moss">Mose</h3>
+              <p
+                data-no="Naturlig grønn tone til detaljer, hytter og uterom."
+                data-en="A natural green tone for details, cabins and outdoor areas."
+              >
+                Naturlig grønn tone til detaljer, hytter og uterom.
+              </p>
             </article>
             <article>
               <span class="palette-chip chip-slate"></span>
-              <h3>Skifer</h3>
-              <p>Stødig kontrast til fasader, vinduer og listverk.</p>
+              <h3 data-no="Skifer" data-en="Slate">Skifer</h3>
+              <p
+                data-no="Stødig kontrast til fasader, vinduer og listverk."
+                data-en="A grounded contrast for facades, windows and trim."
+              >
+                Stødig kontrast til fasader, vinduer og listverk.
+              </p>
             </article>
           </div>
         </section>
 
         <section class="section process-section" id="prosjekt">
           <div class="section-heading">
-            <p class="eyebrow">Prosess</p>
-            <h2>En enkel arbeidsflyt som gir færre overraskelser og bedre resultat.</h2>
+            <p class="eyebrow" data-no="Prosess" data-en="Process">Prosess</p>
+            <h2
+              data-no="En enkel arbeidsflyt som gir færre overraskelser og bedre resultat."
+              data-en="A simple process that leads to fewer surprises and a better result."
+            >
+              En enkel arbeidsflyt som gir færre overraskelser og bedre resultat.
+            </h2>
           </div>
 
           <div class="timeline">
             <article>
               <span>01</span>
-              <h3>Befaring</h3>
-              <p>Vi ser på overflater, lysforhold og hva som må tåle mest.</p>
+              <h3 data-no="Befaring" data-en="Site visit">Befaring</h3>
+              <p
+                data-no="Vi ser på overflater, lysforhold og hva som må tåle mest."
+                data-en="We assess the surfaces, lighting conditions and where durability matters most."
+              >
+                Vi ser på overflater, lysforhold og hva som må tåle mest.
+              </p>
             </article>
             <article>
               <span>02</span>
-              <h3>Farge og plan</h3>
-              <p>Du får forslag til jordtoner, omfang, tidslinje og prisbilde.</p>
+              <h3 data-no="Farge og plan" data-en="Colour and plan">Farge og plan</h3>
+              <p
+                data-no="Du får forslag til jordtoner, omfang, tidslinje og prisbilde."
+                data-en="You receive suggested earth tones, scope, timeline and pricing direction."
+              >
+                Du får forslag til jordtoner, omfang, tidslinje og prisbilde.
+              </p>
             </article>
             <article>
               <span>03</span>
-              <h3>Utførelse</h3>
-              <p>Vi gjør grunnarbeidet ordentlig og holder området ryddig underveis.</p>
+              <h3 data-no="Utførelse" data-en="Execution">Utførelse</h3>
+              <p
+                data-no="Vi gjør grunnarbeidet ordentlig og holder området ryddig underveis."
+                data-en="We do the prep work properly and keep the area tidy throughout the project."
+              >
+                Vi gjør grunnarbeidet ordentlig og holder området ryddig underveis.
+              </p>
             </article>
             <article>
               <span>04</span>
-              <h3>Ferdigstillelse</h3>
-              <p>Vi går gjennom arbeidet sammen og sikrer et helhetlig sluttresultat.</p>
+              <h3 data-no="Ferdigstillelse" data-en="Completion">Ferdigstillelse</h3>
+              <p
+                data-no="Vi går gjennom arbeidet sammen og sikrer et helhetlig sluttresultat."
+                data-en="We review the work together and make sure the final result feels complete."
+              >
+                Vi går gjennom arbeidet sammen og sikrer et helhetlig sluttresultat.
+              </p>
             </article>
           </div>
         </section>
 
         <section class="section testimonial-section">
           <div class="quote-card">
-            <p class="quote">
+            <p
+              class="quote"
+              data-no='"Vi ønsket et lunere uttrykk både inne og ute. Resultatet føles naturlig, gjennomført og mye mer varig enn det vi hadde før."'
+              data-en='"We wanted a warmer feeling both inside and outside. The result feels natural, considered and far more lasting than what we had before."'
+            >
               "Vi ønsket et lunere uttrykk både inne og ute. Resultatet føles
               naturlig, gjennomført og mye mer varig enn det vi hadde før."
             </p>
-            <p class="quote-author">Familiebolig utenfor Trondheim</p>
+            <p
+              class="quote-author"
+              data-no="Familiebolig utenfor Trondheim"
+              data-en="Family home outside Trondheim"
+            >
+              Familiebolig utenfor Trondheim
+            </p>
           </div>
           <div class="assurance-card">
-            <h2>Skapt for norske hjem og norske flater.</h2>
-            <p>
+            <h2
+              data-no="Skapt for norske hjem og norske flater."
+              data-en="Created for Norwegian homes and exterior surfaces."
+            >
+              Skapt for norske hjem og norske flater.
+            </h2>
+            <p
+              data-no="Enten du vil løfte en leilighet i byen eller fornye en værutsatt hyttefasade, leverer vi maling som både beskytter og forbedrer."
+              data-en="Whether you want to lift a city apartment or renew a weather-exposed cabin facade, we deliver painting work that both protects and improves."
+            >
               Enten du vil løfte en leilighet i byen eller fornye en værutsatt
               hyttefasade, leverer vi maling som både beskytter og forbedrer.
             </p>
-            <a class="text-link" href="#kontakt">Snakk med oss om prosjektet ditt</a>
+            <a
+              class="text-link"
+              href="#kontakt"
+              data-no="Snakk med oss om prosjektet ditt"
+              data-en="Talk to us about your project"
+            >
+              Snakk med oss om prosjektet ditt
+            </a>
           </div>
         </section>
 
         <section class="section contact-section" id="kontakt">
           <div class="contact-copy">
-            <p class="eyebrow">Kontakt</p>
-            <h2>Be om en uforpliktende prat om innvendig eller utvendig maling.</h2>
-            <p>
+            <p class="eyebrow" data-no="Kontakt" data-en="Contact">Kontakt</p>
+            <h2
+              data-no="Be om en uforpliktende prat om innvendig eller utvendig maling."
+              data-en="Request a no-obligation conversation about interior or exterior painting."
+            >
+              Be om en uforpliktende prat om innvendig eller utvendig maling.
+            </h2>
+            <p
+              data-no="Vi hjelper kunder i Norge med gjennomtenkte fargevalg, forberedelse og utførelse. Fortell oss om boligtype, område og ønsket stil, så tar vi det derfra."
+              data-en="We help clients across Norway with thoughtful colour direction, preparation and execution. Tell us about the property type, area and style you want, and we can take it from there."
+            >
               Vi hjelper kunder i Norge med gjennomtenkte fargevalg,
               forberedelse og utførelse. Fortell oss om boligtype, område og
               ønsket stil, så tar vi det derfra.
             </p>
           </div>
 
-          <div class="contact-panel">
-            <div class="contact-row">
-              <span>Telefon</span>
-              <strong>+47 400 00 000</strong>
+          <div class="contact-stack">
+            <div class="contact-panel">
+              <div class="contact-row">
+                <span data-no="Telefon" data-en="Phone">Telefon</span>
+                <strong>+47 400 00 000</strong>
+              </div>
+              <div class="contact-row">
+                <span data-no="E-post" data-en="Email">E-post</span>
+                <strong>hei@nordjordmaling.no</strong>
+              </div>
+              <div class="contact-row">
+                <span data-no="Områder" data-en="Areas">Områder</span>
+                <strong
+                  data-no="Oslo, Bergen, Trondheim og omegn"
+                  data-en="Oslo, Bergen, Trondheim and surrounding areas"
+                >
+                  Oslo, Bergen, Trondheim og omegn
+                </strong>
+              </div>
+              <a
+                class="button button-primary button-full"
+                href="mailto:hei@nordjordmaling.no"
+                data-no="Bestill befaring"
+                data-en="Book a consultation"
+              >
+                Bestill befaring
+              </a>
             </div>
-            <div class="contact-row">
-              <span>E-post</span>
-              <strong>hei@nordjordmaling.no</strong>
-            </div>
-            <div class="contact-row">
-              <span>Områder</span>
-              <strong>Oslo, Bergen, Trondheim og omegn</strong>
-            </div>
-            <a class="button button-primary button-full" href="mailto:hei@nordjordmaling.no">
-              Bestill befaring
-            </a>
+
+            <form class="contact-form">
+              <div class="form-grid">
+                <label class="field">
+                  <span data-no="Navn" data-en="Name">Navn</span>
+                  <input
+                    type="text"
+                    name="name"
+                    data-placeholder-no="Ditt navn"
+                    data-placeholder-en="Your name"
+                    placeholder="Ditt navn"
+                  />
+                </label>
+                <label class="field">
+                  <span data-no="E-post" data-en="Email">E-post</span>
+                  <input
+                    type="email"
+                    name="email"
+                    data-placeholder-no="din@epost.no"
+                    data-placeholder-en="you@email.com"
+                    placeholder="din@epost.no"
+                  />
+                </label>
+              </div>
+              <label class="field">
+                <span data-no="Type prosjekt" data-en="Project type">Type prosjekt</span>
+                <select name="projectType">
+                  <option
+                    value="interior"
+                    data-no="Innvendig maling"
+                    data-en="Interior painting"
+                  >
+                    Innvendig maling
+                  </option>
+                  <option
+                    value="exterior"
+                    data-no="Utvendig maling"
+                    data-en="Exterior painting"
+                  >
+                    Utvendig maling
+                  </option>
+                  <option value="both" data-no="Begge deler" data-en="Both">Begge deler</option>
+                </select>
+              </label>
+              <label class="field">
+                <span data-no="Melding" data-en="Message">Melding</span>
+                <textarea
+                  name="message"
+                  rows="4"
+                  data-placeholder-no="Fortell litt om boligen, området og når du ønsker å starte."
+                  data-placeholder-en="Tell us about the property, location and when you want to get started."
+                  placeholder="Fortell litt om boligen, området og når du ønsker å starte."
+                ></textarea>
+              </label>
+              <button
+                class="button button-secondary button-full"
+                type="submit"
+                data-no="Send forespørsel"
+                data-en="Send request"
+              >
+                Send forespørsel
+              </button>
+            </form>
           </div>
         </section>
       </main>
     </div>
+
+    <script>
+      const languages = {
+        no: {
+          title: "Nordjord Maling | Innvendig og utvendig maling i Norge",
+          description:
+            "Nordjord Maling tilbyr innvendig og utvendig maling i Norge med varme jordfarger, solide detaljer og arbeid som varer i nordisk klima."
+        },
+        en: {
+          title: "Nordjord Painting | Interior and exterior painting in Norway",
+          description:
+            "Nordjord Painting provides interior and exterior painting in Norway with earthy colours, careful detailing and work built for Nordic weather."
+        }
+      };
+
+      const descriptionTag = document.querySelector('meta[name="description"]');
+      const translateNodes = document.querySelectorAll("[data-no][data-en]");
+      const placeholderNodes = document.querySelectorAll("[data-placeholder-no][data-placeholder-en]");
+      const langButtons = document.querySelectorAll(".lang-button");
+
+      function setLanguage(lang) {
+        document.documentElement.lang = lang;
+        document.title = languages[lang].title;
+        descriptionTag.setAttribute("content", languages[lang].description);
+
+        translateNodes.forEach((node) => {
+          node.textContent = node.dataset[lang];
+        });
+
+        placeholderNodes.forEach((node) => {
+          node.placeholder = node.dataset[`placeholder${lang === "no" ? "No" : "En"}`];
+        });
+
+        langButtons.forEach((button) => {
+          button.classList.toggle("is-active", button.dataset.lang === lang);
+          button.setAttribute("aria-pressed", button.dataset.lang === lang ? "true" : "false");
+        });
+      }
+
+      langButtons.forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.lang));
+      });
+
+      document.querySelector(".contact-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        const lang = document.documentElement.lang === "en" ? "en" : "no";
+        const subject =
+          lang === "en"
+            ? "Painting project enquiry"
+            : "Foresporsel om maleprosjekt";
+        const lines =
+          lang === "en"
+            ? [
+                `Name: ${formData.get("name") || ""}`,
+                `Email: ${formData.get("email") || ""}`,
+                `Project type: ${formData.get("projectType") || ""}`,
+                "",
+                `${formData.get("message") || ""}`
+              ]
+            : [
+                `Navn: ${formData.get("name") || ""}`,
+                `E-post: ${formData.get("email") || ""}`,
+                `Prosjekttype: ${formData.get("projectType") || ""}`,
+                "",
+                `${formData.get("message") || ""}`
+              ];
+
+        const body = encodeURIComponent(lines.join("\n"));
+        window.location.href = `mailto:hei@nordjordmaling.no?subject=${encodeURIComponent(subject)}&body=${body}`;
+      });
+
+      setLanguage("no");
+    </script>
   </body>
 </html>
