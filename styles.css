@@ -422,6 +422,7 @@ h2 {
 
 .service-grid,
 .area-grid,
+.faq-grid,
 .testimonial-section,
 .contact-section {
   display: grid;
@@ -478,6 +479,23 @@ h2 {
 .area-grid article {
   padding: 1.5rem;
   border-radius: 1.5rem;
+}
+
+.faq-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.faq-grid article {
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow);
+}
+
+.faq-grid p {
+  color: var(--muted);
+  line-height: 1.7;
 }
 
 .timeline {
@@ -616,6 +634,7 @@ h2 {
   .stats-strip,
   .service-grid,
   .area-grid,
+  .faq-grid,
   .timeline,
   .testimonial-section,
   .contact-section {
