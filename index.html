@@ -1,542 +1,241 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="no">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PrimMaler – Profesjonelt malerfirma</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --blue:       #B8D4E8;
-  --blue-mid:   #7AAEC8;
-  --blue-deep:  #2E6B8A;
-  --blue-dark:  #1A3D52;
-  --blue-pale:  #EAF4FB;
-  --white:      #FFFFFF;
-  --ink:        #0E2330;
-  --muted:      #5A7A8A;
-  --border:     rgba(46,107,138,0.13);
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { font-family:'Outfit',sans-serif; background:var(--white); color:var(--ink); overflow-x:hidden; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nordjord Maling | Innvendig og utvendig maling i Norge</title>
+    <meta
+      name="description"
+      content="Nordjord Maling tilbyr innvendig og utvendig maling i Norge med varme jordfarger, solide detaljer og arbeid som varer i nordisk klima."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <a class="brand" href="#top">
+            <span class="brand-mark">NJ</span>
+            <span class="brand-text">Nordjord Maling</span>
+          </a>
+          <div class="topbar-links">
+            <a href="#tjenester">Tjenester</a>
+            <a href="#prosjekt">Prosess</a>
+            <a href="#kontakt">Kontakt</a>
+          </div>
+        </nav>
 
-/* NAV */
-nav {
-  position:fixed; top:0; left:0; right:0; z-index:100;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:0 64px; height:68px;
-  background:rgba(255,255,255,0.94); backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--border); transition:box-shadow 0.3s;
-}
-.nav-logo { font-family:'Cormorant Garamond',serif; font-size:1.55rem; font-weight:600; color:var(--ink); text-decoration:none; letter-spacing:0.01em; }
-.nav-logo span { color:var(--blue-deep); }
-.nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
-.nav-links a { font-size:0.82rem; font-weight:500; letter-spacing:0.07em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.2s; }
-.nav-links a:hover { color:var(--ink); }
-.nav-right { display:flex; align-items:center; gap:16px; }
-.lang-switch { display:flex; gap:2px; background:var(--blue-pale); border-radius:20px; padding:3px; }
-.lang-btn { font-size:0.72rem; font-weight:600; letter-spacing:0.07em; padding:4px 11px; border-radius:16px; border:none; cursor:pointer; background:transparent; color:var(--muted); font-family:'Outfit',sans-serif; transition:all 0.2s; }
-.lang-btn.active { background:var(--blue-deep); color:var(--white); }
-.nav-cta { background:var(--blue-deep); color:var(--white); padding:9px 22px; border-radius:4px; font-size:0.8rem; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; text-decoration:none; transition:background 0.2s; }
-.nav-cta:hover { background:var(--blue-dark); }
-.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
-.hamburger span { display:block; width:22px; height:1.5px; background:var(--ink); }
+        <section class="hero-grid" id="top">
+          <div class="hero-copy">
+            <p class="eyebrow">For hjem, hytter og fasader i Norge</p>
+            <h1>Malerarbeid som holder seg vakkert gjennom norske årstider.</h1>
+            <p class="hero-text">
+              Vi maler innvendig og utvendig med rolige jordtoner, grundig
+              forarbeid og løsninger tilpasset fukt, vind og skiftende lys.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#kontakt">Be om gratis befaring</a>
+              <a class="button button-secondary" href="#tjenester">Se tjenester</a>
+            </div>
+            <ul class="hero-points">
+              <li>Innvendig maling for bolig og næring</li>
+              <li>Utvendig maling for hus, hytter og fasader</li>
+              <li>Fargevalg inspirert av jord, stein og skandinavisk natur</li>
+            </ul>
+          </div>
 
-/* HERO */
-.hero { min-height:100vh; display:grid; grid-template-columns:55% 45%; padding-top:68px; }
-.hero-left { display:flex; flex-direction:column; justify-content:center; padding:80px 64px; background:var(--white); }
-.eyebrow { font-size:0.72rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--blue-deep); margin-bottom:22px; }
-.hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,4.5vw,4.8rem); font-weight:600; line-height:1.06; letter-spacing:-0.01em; color:var(--ink); margin-bottom:24px; }
-.hero h1 em { font-style:italic; color:var(--blue-deep); }
-.hero-sub { font-size:1rem; line-height:1.72; color:var(--muted); max-width:400px; margin-bottom:44px; font-weight:300; }
-.hero-actions { display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
-.btn-primary { display:inline-block; background:var(--blue-deep); color:var(--white); padding:14px 32px; border-radius:4px; font-size:0.85rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; text-decoration:none; transition:background 0.2s; }
-.btn-primary:hover { background:var(--blue-dark); }
-.btn-ghost { display:inline-flex; align-items:center; gap:6px; font-size:0.85rem; font-weight:500; color:var(--ink); text-decoration:none; transition:gap 0.2s; }
-.btn-ghost:hover { gap:12px; }
-.hero-stats { display:flex; gap:40px; margin-top:56px; padding-top:36px; border-top:1px solid var(--border); flex-wrap:wrap; }
-.stat-num { font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:600; color:var(--blue-deep); line-height:1; margin-bottom:4px; }
-.stat-label { font-size:0.75rem; color:var(--muted); font-weight:400; }
-.hero-right { background:var(--blue-pale); position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; }
-.hero-photo-ph { width:100%; height:100%; background:linear-gradient(160deg,var(--blue) 0%,var(--blue-mid) 60%,var(--blue-deep) 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; color:rgba(255,255,255,0.4); }
-.hero-photo-ph svg { width:64px; height:64px; opacity:0.5; }
-.hero-photo-ph p { font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; }
-.hero-badge { position:absolute; bottom:36px; left:36px; background:var(--white); border-left:3px solid var(--blue-deep); padding:14px 20px; border-radius:0 4px 4px 0; box-shadow:0 8px 32px rgba(30,70,100,0.12); }
-.hero-badge .big { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:600; color:var(--blue-deep); display:block; line-height:1; }
-.hero-badge span { font-size:0.72rem; color:var(--muted); letter-spacing:0.04em; }
+          <div class="hero-visual" aria-hidden="true">
+            <div class="paint-card paint-card-large">
+              <span class="swatch swatch-sand"></span>
+              <div>
+                <p>Innvendig ro</p>
+                <strong>Sand, kalk og varm stein</strong>
+              </div>
+            </div>
+            <div class="paint-card paint-card-offset">
+              <span class="swatch swatch-moss"></span>
+              <div>
+                <p>Utvendig styrke</p>
+                <strong>Mose, jord og skifer</strong>
+              </div>
+            </div>
+            <div class="visual-panel">
+              <div class="panel-copy">
+                <p>Tilpasset norsk klima</p>
+                <strong>Fra Oslo til Vestlandet</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+      </header>
 
-/* BRANDS */
-.brands { background:var(--blue-pale); padding:22px 64px; display:flex; align-items:center; gap:48px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-.brands-label { font-size:0.7rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); white-space:nowrap; flex-shrink:0; }
-.brands-list { display:flex; align-items:center; gap:44px; flex-wrap:wrap; }
-.brand-item { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; color:var(--blue-mid); letter-spacing:0.03em; }
+      <main>
+        <section class="stats-strip">
+          <article>
+            <strong>Innvendig</strong>
+            <p>Vegger, tak, listverk, trapper og detaljer med rene avslutninger.</p>
+          </article>
+          <article>
+            <strong>Utvendig</strong>
+            <p>Grunning, vask, skraping og slitesterk overflate for norsk vær.</p>
+          </article>
+          <article>
+            <strong>Fargeråd</strong>
+            <p>Vi bygger paletter som passer treverk, mur, stein og naturlig lys.</p>
+          </article>
+        </section>
 
-/* SECTION SHARED */
-section { padding:96px 64px; }
-.section-label { font-size:0.7rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--blue-deep); margin-bottom:14px; }
-h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3vw,2.9rem); font-weight:600; line-height:1.12; letter-spacing:-0.01em; color:var(--ink); margin-bottom:16px; }
-.lead { font-size:1rem; line-height:1.72; color:var(--muted); font-weight:300; max-width:560px; }
+        <section class="section services" id="tjenester">
+          <div class="section-heading">
+            <p class="eyebrow">Tjenester</p>
+            <h2>To områder, én standard: nøye forarbeid og harmoniske farger.</h2>
+          </div>
 
-/* WHY US */
-.why { background:var(--white); }
-.why-layout { display:grid; grid-template-columns:1fr 1.6fr; gap:80px; align-items:start; }
-.why-intro .lead { margin-top:14px; }
-.why-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); }
-.why-item { background:var(--white); padding:28px 24px; transition:background 0.2s; }
-.why-item:hover { background:var(--blue-pale); }
-.why-num { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:600; color:var(--blue); margin-bottom:8px; }
-.why-title { font-size:0.9rem; font-weight:600; color:var(--ink); margin-bottom:6px; }
-.why-text { font-size:0.83rem; line-height:1.6; color:var(--muted); }
+          <div class="service-grid">
+            <article class="service-card">
+              <p class="service-label">Innvendig maling</p>
+              <h3>Rolige rom med varme, naturlige toner.</h3>
+              <p>
+                Vi maler stue, kjøkken, soverom, gang og kontor med fokus på
+                lys, materialer og overflater som føles rolige over tid.
+              </p>
+              <ul>
+                <li>Vegger, tak og listverk</li>
+                <li>Fornying av kjøkkenfronter og panel</li>
+                <li>Fargesetting for moderne og klassiske hjem</li>
+              </ul>
+            </article>
 
-/* SERVICES */
-.services { background:var(--blue-pale); }
-.services-layout { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-top:52px; }
-.service-card { background:var(--white); padding:44px 36px; transition:box-shadow 0.2s; }
-.service-card:hover { box-shadow:inset 0 3px 0 var(--blue-deep); }
-.service-icon { font-size:1.6rem; margin-bottom:18px; }
-.service-title { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:600; color:var(--ink); margin-bottom:16px; }
-.service-list { list-style:none; display:flex; flex-direction:column; gap:7px; }
-.service-list li { font-size:0.85rem; color:var(--muted); padding-left:14px; position:relative; line-height:1.5; }
-.service-list li::before { content:'–'; position:absolute; left:0; color:var(--blue-mid); }
+            <article class="service-card service-card-dark">
+              <p class="service-label">Utvendig maling</p>
+              <h3>Beskyttelse og uttrykk som tåler norsk klima.</h3>
+              <p>
+                Vi hjelper med fasader, hytter og uterom, og velger produkter
+                og farger som fungerer med vær, treverk og lokal byggestil.
+              </p>
+              <ul>
+                <li>Hus, hytter, gjerder og detaljer</li>
+                <li>Vask, skraping, grunning og toppstrøk</li>
+                <li>Værbestandige løsninger for kyst og innland</li>
+              </ul>
+            </article>
+          </div>
+        </section>
 
-/* PROJECTS */
-.projects { background:var(--blue-dark); padding:96px 64px; }
-.projects h2 { color:var(--white); }
-.projects .section-label { color:var(--blue); }
-.projects .lead { color:rgba(255,255,255,0.45); margin-bottom:52px; }
-.projects-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
-.project-card { aspect-ratio:4/3; background:var(--blue-deep); position:relative; overflow:hidden; cursor:pointer; }
-.project-ph { width:100%; height:100%; background:linear-gradient(135deg,var(--blue-dark),var(--blue-deep)); display:flex; align-items:center; justify-content:center; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.2); transition:all 0.3s; }
-.project-card:hover .project-ph { background:linear-gradient(135deg,var(--blue-deep),var(--blue-mid)); color:rgba(255,255,255,0.4); }
-.project-label { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(14,35,48,0.85)); padding:24px 16px 16px; font-size:0.8rem; font-weight:500; color:var(--white); transform:translateY(100%); transition:transform 0.3s ease; }
-.project-card:hover .project-label { transform:translateY(0); }
+        <section class="section palette-section">
+          <div class="section-heading narrow">
+            <p class="eyebrow">Jordpalett</p>
+            <h2>Farger hentet fra norsk natur, ikke fra tilfeldige trender.</h2>
+          </div>
 
-/* REVIEWS */
-.reviews { background:var(--white); }
-.reviews-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:52px; gap:24px; flex-wrap:wrap; }
-.google-score { display:flex; align-items:center; gap:12px; background:var(--blue-pale); padding:14px 22px; border-radius:4px; border:1px solid var(--border); }
-.score-num { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:600; color:var(--blue-deep); }
-.stars { color:#F5A623; font-size:1rem; letter-spacing:2px; }
-.score-sub { font-size:0.72rem; color:var(--muted); margin-top:2px; }
-.reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
-.review-card { background:var(--white); padding:32px 28px; transition:background 0.2s; }
-.review-card:hover { background:var(--blue-pale); }
-.review-stars { color:#F5A623; font-size:0.82rem; letter-spacing:2px; margin-bottom:14px; }
-.review-text { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-style:italic; line-height:1.65; color:var(--ink); margin-bottom:18px; }
-.review-author { font-size:0.78rem; font-weight:600; color:var(--muted); letter-spacing:0.04em; }
+          <div class="palette-grid">
+            <article>
+              <span class="palette-chip chip-sand"></span>
+              <h3>Sand</h3>
+              <p>Myk base for lyse rom og åpne oppholdsarealer.</p>
+            </article>
+            <article>
+              <span class="palette-chip chip-clay"></span>
+              <h3>Leire</h3>
+              <p>Gir varme og dybde til entré, stue og spiseplass.</p>
+            </article>
+            <article>
+              <span class="palette-chip chip-moss"></span>
+              <h3>Mose</h3>
+              <p>Naturlig grønn tone til detaljer, hytter og uterom.</p>
+            </article>
+            <article>
+              <span class="palette-chip chip-slate"></span>
+              <h3>Skifer</h3>
+              <p>Stødig kontrast til fasader, vinduer og listverk.</p>
+            </article>
+          </div>
+        </section>
 
-/* FAQ */
-.faq { background:var(--blue-pale); }
-.faq-layout { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-top:52px; }
-.faq-item { background:var(--white); cursor:pointer; }
-.faq-q { display:flex; align-items:center; justify-content:space-between; padding:22px 28px; font-size:0.9rem; font-weight:500; color:var(--ink); user-select:none; gap:16px; }
-.faq-plus { width:24px; height:24px; border-radius:50%; border:1.5px solid var(--blue-mid); display:flex; align-items:center; justify-content:center; font-size:1rem; color:var(--blue-mid); flex-shrink:0; transition:all 0.2s; }
-.faq-item.open .faq-plus { background:var(--blue-deep); border-color:var(--blue-deep); color:var(--white); transform:rotate(45deg); }
-.faq-a { max-height:0; overflow:hidden; transition:max-height 0.35s ease, padding 0.2s; font-size:0.86rem; line-height:1.7; color:var(--muted); padding:0 28px; }
-.faq-item.open .faq-a { max-height:200px; padding:0 28px 22px; }
+        <section class="section process-section" id="prosjekt">
+          <div class="section-heading">
+            <p class="eyebrow">Prosess</p>
+            <h2>En enkel arbeidsflyt som gir færre overraskelser og bedre resultat.</h2>
+          </div>
 
-/* CTA */
-.cta-banner { background:var(--blue-deep); padding:72px 64px; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
-.cta-banner h2 { color:var(--white); }
-.cta-banner h2 em { font-style:italic; color:var(--blue); }
-.cta-banner p { color:rgba(255,255,255,0.55); font-size:0.95rem; font-weight:300; margin-top:8px; max-width:440px; }
-.btn-white { display:inline-block; background:var(--white); color:var(--blue-deep); padding:15px 36px; border-radius:4px; font-size:0.85rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; white-space:nowrap; flex-shrink:0; transition:all 0.2s; border:2px solid var(--white); }
-.btn-white:hover { background:transparent; color:var(--white); }
+          <div class="timeline">
+            <article>
+              <span>01</span>
+              <h3>Befaring</h3>
+              <p>Vi ser på overflater, lysforhold og hva som må tåle mest.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Farge og plan</h3>
+              <p>Du får forslag til jordtoner, omfang, tidslinje og prisbilde.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Utførelse</h3>
+              <p>Vi gjør grunnarbeidet ordentlig og holder området ryddig underveis.</p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>Ferdigstillelse</h3>
+              <p>Vi går gjennom arbeidet sammen og sikrer et helhetlig sluttresultat.</p>
+            </article>
+          </div>
+        </section>
 
-/* CONTACT */
-.contact { display:grid; grid-template-columns:1fr 1fr; padding:0; }
-.contact-info { background:var(--blue-dark); padding:80px 64px; }
-.contact-info h2 { color:var(--white); }
-.contact-info .section-label { color:var(--blue); }
-.contact-info p { color:rgba(255,255,255,0.45); font-size:0.95rem; line-height:1.72; font-weight:300; margin-top:16px; margin-bottom:44px; max-width:360px; }
-.contact-details { display:flex; flex-direction:column; gap:18px; }
-.contact-row { display:flex; align-items:center; gap:14px; }
-.c-icon { width:38px; height:38px; background:rgba(255,255,255,0.07); border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
-.c-val { color:var(--white); font-size:0.95rem; }
-.c-val a { color:var(--white); text-decoration:none; }
-.c-val a:hover { color:var(--blue); }
-.contact-form { background:var(--blue-pale); padding:80px 64px; }
-.contact-form h2 { font-size:2rem; }
-.form-group { margin-bottom:18px; }
-.form-group label { display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:7px; }
-.form-group input,.form-group textarea,.form-group select { width:100%; background:var(--white); border:1px solid var(--border); border-radius:4px; padding:12px 16px; font-family:'Outfit',sans-serif; font-size:0.9rem; color:var(--ink); outline:none; transition:border-color 0.2s; appearance:none; }
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus { border-color:var(--blue-mid); }
-.form-group textarea { resize:vertical; min-height:110px; }
-.form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-.form-submit { width:100%; margin-top:6px; background:var(--blue-deep); color:var(--white); border:none; padding:14px; border-radius:4px; font-family:'Outfit',sans-serif; font-size:0.85rem; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; cursor:pointer; transition:background 0.2s; }
-.form-submit:hover { background:var(--blue-dark); }
+        <section class="section testimonial-section">
+          <div class="quote-card">
+            <p class="quote">
+              "Vi ønsket et lunere uttrykk både inne og ute. Resultatet føles
+              naturlig, gjennomført og mye mer varig enn det vi hadde før."
+            </p>
+            <p class="quote-author">Familiebolig utenfor Trondheim</p>
+          </div>
+          <div class="assurance-card">
+            <h2>Skapt for norske hjem og norske flater.</h2>
+            <p>
+              Enten du vil løfte en leilighet i byen eller fornye en værutsatt
+              hyttefasade, leverer vi maling som både beskytter og forbedrer.
+            </p>
+            <a class="text-link" href="#kontakt">Snakk med oss om prosjektet ditt</a>
+          </div>
+        </section>
 
-/* FOOTER */
-footer { background:var(--ink); padding:56px 64px; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:60px; border-top:1px solid rgba(255,255,255,0.06); }
-.footer-logo { display:block; margin-bottom:12px; }
-footer p { color:rgba(255,255,255,0.3); font-size:0.83rem; line-height:1.7; max-width:240px; }
-.footer-col h4 { font-size:0.68rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--blue-mid); margin-bottom:18px; }
-.footer-links { list-style:none; display:flex; flex-direction:column; gap:9px; }
-.footer-links a { color:rgba(255,255,255,0.35); font-size:0.85rem; text-decoration:none; transition:color 0.2s; }
-.footer-links a:hover { color:var(--white); }
-.footer-bottom { background:var(--ink); padding:18px 64px; border-top:1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; align-items:center; font-size:0.75rem; color:rgba(255,255,255,0.2); }
+        <section class="section contact-section" id="kontakt">
+          <div class="contact-copy">
+            <p class="eyebrow">Kontakt</p>
+            <h2>Be om en uforpliktende prat om innvendig eller utvendig maling.</h2>
+            <p>
+              Vi hjelper kunder i Norge med gjennomtenkte fargevalg,
+              forberedelse og utførelse. Fortell oss om boligtype, område og
+              ønsket stil, så tar vi det derfra.
+            </p>
+          </div>
 
-/* ANIM */
-.fade-up { opacity:0; transform:translateY(24px); transition:opacity 0.55s ease,transform 0.55s ease; }
-.fade-up.visible { opacity:1; transform:translateY(0); }
-
-/* MOBILE */
-@media(max-width:900px){
-  nav{padding:0 24px;}
-  .nav-links{display:none;}
-  .hamburger{display:flex;}
-  section{padding:60px 24px;}
-  .hero{grid-template-columns:1fr;}
-  .hero-left{padding:60px 24px;}
-  .hero-right{min-height:260px;}
-  .brands{padding:18px 24px;gap:24px;}
-  .why-layout,.services-layout,.contact{grid-template-columns:1fr;}
-  .services-layout{margin-top:36px;}
-  .projects-grid,.reviews-grid,.faq-layout{grid-template-columns:1fr 1fr;}
-  .cta-banner{padding:56px 24px;}
-  .contact-info,.contact-form{padding:60px 24px;}
-  footer{grid-template-columns:1fr;gap:36px;padding:40px 24px;}
-  .footer-bottom{padding:16px 24px;flex-direction:column;gap:6px;text-align:center;}
-  .form-row{grid-template-columns:1fr;}
-  .reviews-header{flex-direction:column;align-items:flex-start;}
-}
-@media(max-width:600px){
-  .projects-grid,.reviews-grid,.faq-layout{grid-template-columns:1fr;}
-}
-</style>
-</head>
-<body>
-
-<nav>
-  <a href="#" class="nav-logo">Prim<span>Maler</span></a>
-  <ul class="nav-links">
-    <li><a href="#tjenester" data-no="Tjenester" data-en="Services">Tjenester</a></li>
-    <li><a href="#prosjekter" data-no="Prosjekter" data-en="Projects">Prosjekter</a></li>
-    <li><a href="#anmeldelser" data-no="Anmeldelser" data-en="Reviews">Anmeldelser</a></li>
-    <li><a href="#faq" data-no="Spørsmål" data-en="FAQ">Spørsmål</a></li>
-    <li><a href="#kontakt" data-no="Kontakt" data-en="Contact">Kontakt</a></li>
-  </ul>
-  <div class="nav-right">
-    <div class="lang-switch">
-      <button class="lang-btn active" onclick="setLang('no')">NO</button>
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
+          <div class="contact-panel">
+            <div class="contact-row">
+              <span>Telefon</span>
+              <strong>+47 400 00 000</strong>
+            </div>
+            <div class="contact-row">
+              <span>E-post</span>
+              <strong>hei@nordjordmaling.no</strong>
+            </div>
+            <div class="contact-row">
+              <span>Områder</span>
+              <strong>Oslo, Bergen, Trondheim og omegn</strong>
+            </div>
+            <a class="button button-primary button-full" href="mailto:hei@nordjordmaling.no">
+              Bestill befaring
+            </a>
+          </div>
+        </section>
+      </main>
     </div>
-    <a href="#kontakt" class="nav-cta" data-no="Gratis tilbud" data-en="Free quote">Gratis tilbud</a>
-  </div>
-  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-</nav>
-
-<!-- HERO -->
-<section class="hero" style="padding:0;">
-  <div class="hero-left">
-    <div class="eyebrow" data-no="Profesjonelt malerfirma · Fredrikstad" data-en="Professional painting company · Fredrikstad">Profesjonelt malerfirma · Fredrikstad</div>
-    <h1 data-no="Maling du kan stole på, <em>innvendig og utvendig</em>" data-en="Painting you can trust, <em>inside and out</em>">Maling du kan stole på, <em>innvendig og utvendig</em></h1>
-    <p class="hero-sub" data-no="Vi leverer kvalitetsmaling til private, borettslag og næringskunder i Østfold. Fast pris, sertifiserte fagfolk og ingen skjulte kostnader." data-en="We deliver quality painting to private customers, housing associations, and businesses in Østfold. Fixed price, certified professionals, no hidden costs.">Vi leverer kvalitetsmaling til private, borettslag og næringskunder i Østfold. Fast pris, sertifiserte fagfolk og ingen skjulte kostnader.</p>
-    <div class="hero-actions">
-      <a href="#kontakt" class="btn-primary" data-no="Få gratis tilbud" data-en="Get a free quote">Få gratis tilbud</a>
-      <a href="#prosjekter" class="btn-ghost" data-no="Se prosjekter →" data-en="See projects →">Se prosjekter →</a>
-    </div>
-    <div class="hero-stats">
-      <div><div class="stat-num">200+</div><div class="stat-label" data-no="Fornøyde kunder" data-en="Happy customers">Fornøyde kunder</div></div>
-      <div><div class="stat-num">12+</div><div class="stat-label" data-no="Års erfaring" data-en="Years experience">Års erfaring</div></div>
-      <div><div class="stat-num">5.0</div><div class="stat-label" data-no="Google-vurdering" data-en="Google rating">Google-vurdering</div></div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-photo-ph">
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="6" y="16" width="52" height="38" rx="2" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M6 30h52" stroke="currentColor" stroke-width="1"/>
-        <rect x="18" y="36" width="12" height="18" fill="currentColor" opacity="0.4"/>
-        <rect x="36" y="36" width="18" height="12" fill="currentColor" opacity="0.3"/>
-        <path d="M6 16l26-10 26 10" stroke="currentColor" stroke-width="1.5"/>
-      </svg>
-      <p data-no="Ditt bilde her" data-en="Your photo here">Ditt bilde her</p>
-    </div>
-    <div class="hero-badge">
-      <span class="big">★ 5.0</span>
-      <span data-no="Google-anmeldelser" data-en="Google reviews">Google-anmeldelser</span>
-    </div>
-  </div>
-</section>
-
-<!-- BRANDS -->
-<div class="brands">
-  <div class="brands-label" data-no="Godkjente merker" data-en="Approved brands">Godkjente merker</div>
-  <div class="brands-list">
-    <div class="brand-item">Jotun</div>
-    <div class="brand-item">Nordsjö</div>
-    <div class="brand-item">Beckers</div>
-    <div class="brand-item">Gjøco</div>
-    <div class="brand-item">Tikkurila</div>
-    <div class="brand-item">Jordan</div>
-  </div>
-</div>
-
-<!-- WHY US -->
-<section class="why fade-up">
-  <div class="why-layout">
-    <div class="why-intro">
-      <div class="section-label" data-no="Hvorfor velge oss" data-en="Why choose us">Hvorfor velge oss</div>
-      <h2 data-no="Ærlig håndverk, forutsigbare priser" data-en="Honest craftsmanship, predictable prices">Ærlig håndverk, forutsigbare priser</h2>
-      <p class="lead" data-no="Vi kombinerer faglig dyktighet med tydelig kommunikasjon og en fast kontaktperson fra start til slutt. Du vet alltid hva du betaler — inkludert materialer, stillas og MVA." data-en="We combine professional skill with clear communication and a dedicated contact person from start to finish. You always know what you're paying — including materials, scaffolding, and VAT.">Vi kombinerer faglig dyktighet med tydelig kommunikasjon og en fast kontaktperson fra start til slutt. Du vet alltid hva du betaler — inkludert materialer, stillas og MVA.</p>
-    </div>
-    <div class="why-grid">
-      <div class="why-item">
-        <div class="why-num">01</div>
-        <div class="why-title" data-no="Fast pris, alt inkludert" data-en="Fixed price, all included">Fast pris, alt inkludert</div>
-        <div class="why-text" data-no="Materialer, arbeid, stillas og MVA er alltid inkludert. Ingen overraskelser." data-en="Materials, labor, scaffolding, and VAT always included. No surprises.">Materialer, arbeid, stillas og MVA er alltid inkludert. Ingen overraskelser.</div>
-      </div>
-      <div class="why-item">
-        <div class="why-num">02</div>
-        <div class="why-title" data-no="Kvalitetsgaranti" data-en="Quality guarantee">Kvalitetsgaranti</div>
-        <div class="why-text" data-no="Alt arbeid er dekket av garanti. Vi bruker kun anerkjente produkter av høy kvalitet." data-en="All work is covered by warranty. We only use recognized, high-quality products.">Alt arbeid er dekket av garanti. Vi bruker kun anerkjente produkter av høy kvalitet.</div>
-      </div>
-      <div class="why-item">
-        <div class="why-num">03</div>
-        <div class="why-title" data-no="HMS-sertifisert" data-en="HSE certified">HMS-sertifisert</div>
-        <div class="why-text" data-no="Alle ansatte har HMS-kort. Firmaet er fullforsikret for trygghet for alle parter." data-en="All employees hold HSE cards. The company is fully insured for everyone's peace of mind.">Alle ansatte har HMS-kort. Firmaet er fullforsikret for trygghet for alle parter.</div>
-      </div>
-      <div class="why-item">
-        <div class="why-num">04</div>
-        <div class="why-title" data-no="Alltid tilgjengelig" data-en="Always available">Alltid tilgjengelig</div>
-        <div class="why-text" data-no="Én fast kontaktperson svarer telefonen og holder deg løpende oppdatert." data-en="One dedicated contact person answers the phone and keeps you continuously updated.">Én fast kontaktperson svarer telefonen og holder deg løpende oppdatert.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="tjenester" class="services fade-up">
-  <div class="section-label" data-no="Tjenester" data-en="Services">Tjenester</div>
-  <h2 data-no="Hva vi tilbyr" data-en="What we offer">Hva vi tilbyr</h2>
-  <div class="services-layout">
-    <div class="service-card">
-      <div class="service-icon">🏠</div>
-      <div class="service-title" data-no="Utvendig maling" data-en="Exterior painting">Utvendig maling</div>
-      <ul class="service-list">
-        <li data-no="Fasade, panel og treverk" data-en="Facade, cladding, and woodwork">Fasade, panel og treverk</li>
-        <li data-no="Beising og grunning" data-en="Staining and priming">Beising og grunning</li>
-        <li data-no="Fasadevask og kraftvask" data-en="Facade and power washing">Fasadevask og kraftvask</li>
-        <li data-no="Slemming og pussreparasjon" data-en="Rendering and plaster repair">Slemming og pussreparasjon</li>
-        <li data-no="Utskifting av råtne elementer" data-en="Replacement of rotten elements">Utskifting av råtne elementer</li>
-        <li data-no="Stillas og lift inkludert" data-en="Scaffolding and lift included">Stillas og lift inkludert</li>
-      </ul>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🖌</div>
-      <div class="service-title" data-no="Innvendig maling" data-en="Interior painting">Innvendig maling</div>
-      <ul class="service-list">
-        <li data-no="Vegger, tak, dører og vinduer" data-en="Walls, ceilings, doors, and windows">Vegger, tak, dører og vinduer</li>
-        <li data-no="Sparkling og sliping" data-en="Filling and sanding">Sparkling og sliping</li>
-        <li data-no="Grunning og beising" data-en="Priming and staining">Grunning og beising</li>
-        <li data-no="Luting av overflater" data-en="Lye treatment of surfaces">Luting av overflater</li>
-        <li data-no="Borettslag og næringsbygg" data-en="Housing associations and commercial">Borettslag og næringsbygg</li>
-        <li data-no="Tapetsering på forespørsel" data-en="Wallpapering on request">Tapetsering på forespørsel</li>
-      </ul>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">⚙️</div>
-      <div class="service-title" data-no="Spesialtjenester" data-en="Special services">Spesialtjenester</div>
-      <ul class="service-list">
-        <li data-no="Terrassebeising og oljing" data-en="Deck staining and oiling">Terrassebeising og oljing</li>
-        <li data-no="Metallkonstruksjoner" data-en="Metal structures">Metallkonstruksjoner</li>
-        <li data-no="Impregnering av naturstein" data-en="Impregnation of natural stone">Impregnering av naturstein</li>
-        <li data-no="Vedlikeholdsavtaler" data-en="Maintenance agreements">Vedlikeholdsavtaler</li>
-        <li data-no="Boligsalg og oppussing" data-en="Home sale preparation">Boligsalg og oppussing</li>
-        <li data-no="Fjerning av gammel maling" data-en="Removal of old paint">Fjerning av gammel maling</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="prosjekter" class="projects fade-up">
-  <div class="section-label" data-no="Referanser" data-en="Projects">Referanser</div>
-  <h2 data-no="Noen av våre prosjekter" data-en="Some of our projects">Noen av våre prosjekter</h2>
-  <p class="lead" data-no="Et utvalg jobber utført for fornøyde kunder i Østfold og omegn." data-en="A selection of jobs completed for satisfied customers in Østfold and surroundings.">Et utvalg jobber utført for fornøyde kunder i Østfold og omegn.</p>
-  <div class="projects-grid">
-    <div class="project-card"><div class="project-ph" data-no="Bilde 1" data-en="Photo 1">Bilde 1</div><div class="project-label" data-no="Enebolig, Fredrikstad" data-en="Detached house, Fredrikstad">Enebolig, Fredrikstad</div></div>
-    <div class="project-card"><div class="project-ph" data-no="Bilde 2" data-en="Photo 2">Bilde 2</div><div class="project-label" data-no="Leilighet, Sarpsborg" data-en="Apartment, Sarpsborg">Leilighet, Sarpsborg</div></div>
-    <div class="project-card"><div class="project-ph" data-no="Bilde 3" data-en="Photo 3">Bilde 3</div><div class="project-label" data-no="Næringsbygg, Moss" data-en="Commercial building, Moss">Næringsbygg, Moss</div></div>
-    <div class="project-card"><div class="project-ph" data-no="Bilde 4" data-en="Photo 4">Bilde 4</div><div class="project-label" data-no="Rekkehus, Halden" data-en="Terraced house, Halden">Rekkehus, Halden</div></div>
-    <div class="project-card"><div class="project-ph" data-no="Bilde 5" data-en="Photo 5">Bilde 5</div><div class="project-label" data-no="Hytte, Hvaler" data-en="Cabin, Hvaler">Hytte, Hvaler</div></div>
-    <div class="project-card"><div class="project-ph" data-no="Bilde 6" data-en="Photo 6">Bilde 6</div><div class="project-label" data-no="Borettslag, Fredrikstad" data-en="Housing co-op, Fredrikstad">Borettslag, Fredrikstad</div></div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section id="anmeldelser" class="reviews fade-up">
-  <div class="reviews-header">
-    <div>
-      <div class="section-label" data-no="Kundeanmeldelser" data-en="Customer reviews">Kundeanmeldelser</div>
-      <h2 data-no="Hva kundene sier" data-en="What customers say">Hva kundene sier</h2>
-    </div>
-    <div class="google-score">
-      <div class="score-num">5.0</div>
-      <div><div class="stars">★★★★★</div><div class="score-sub" data-no="Google-anmeldelser" data-en="Google reviews">Google-anmeldelser</div></div>
-    </div>
-  </div>
-  <div class="reviews-grid">
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-no="&quot;Veldig fornøyd med malejobben. Ryddige, punktlige og hyggelige å samarbeide med.&quot;" data-en="&quot;Very happy with the painting job. Tidy, punctual, and pleasant to work with.&quot;">"Veldig fornøyd med malejobben. Ryddige, punktlige og hyggelige å samarbeide med."</p>
-      <div class="review-author">— Anders Haugen</div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-no="&quot;Rask kommunikasjon, god pris og proft resultat. Alt levert til avtalt tid.&quot;" data-en="&quot;Fast communication, good price and professional result. Everything delivered on time.&quot;">"Rask kommunikasjon, god pris og proft resultat. Alt levert til avtalt tid."</p>
-      <div class="review-author">— Silje Andreassen</div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-no="&quot;Pålitelige, grundige og hyggelige. Fasaden ser fantastisk ut — anbefales på det varmeste!&quot;" data-en="&quot;Reliable, thorough, and friendly. The facade looks fantastic — highly recommended!&quot;">"Pålitelige, grundige og hyggelige. Fasaden ser fantastisk ut — anbefales på det varmeste!"</p>
-      <div class="review-author">— Kjetil Bergstrøm</div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" class="faq fade-up">
-  <div class="section-label" data-no="Vanlige spørsmål" data-en="FAQ">Vanlige spørsmål</div>
-  <h2 data-no="Ofte stilte spørsmål" data-en="Frequently asked questions">Ofte stilte spørsmål</h2>
-  <div class="faq-layout">
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><span data-no="Hva koster det å male et hus?" data-en="How much does it cost to paint a house?">Hva koster det å male et hus?</span><div class="faq-plus">+</div></div>
-      <div class="faq-a" data-no="Et gjennomsnittlig hus i vår region koster typisk 70 000–130 000 kr inkl. MVA, materialer og stillas. Prisen settes alltid individuelt — ta kontakt for et gratis estimat." data-en="An average house in our region typically costs 70,000–130,000 NOK incl. VAT, materials, and scaffolding. The price is always set individually — contact us for a free estimate.">Et gjennomsnittlig hus i vår region koster typisk 70 000–130 000 kr inkl. MVA, materialer og stillas. Prisen settes alltid individuelt — ta kontakt for et gratis estimat.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><span data-no="Jobber dere med fastpris?" data-en="Do you work with fixed prices?">Jobber dere med fastpris?</span><div class="faq-plus">+</div></div>
-      <div class="faq-a" data-no="Ja, alltid. Fastprisen inkluderer alt: arbeid, materialer, forsikring, stillas og avgifter. Ingen overraskelser etterpå." data-en="Yes, always. The fixed price includes everything: labor, materials, insurance, scaffolding, and taxes. No surprises afterwards.">Ja, alltid. Fastprisen inkluderer alt: arbeid, materialer, forsikring, stillas og avgifter. Ingen overraskelser etterpå.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><span data-no="Gir dere garanti?" data-en="Do you offer a guarantee?">Gir dere garanti?</span><div class="faq-plus">+</div></div>
-      <div class="faq-a" data-no="Ja, alt utført arbeid er dekket av garanti. Produktene vi bruker har også produsentgaranti." data-en="Yes, all completed work is covered by warranty. The products we use also come with manufacturer guarantees.">Ja, alt utført arbeid er dekket av garanti. Produktene vi bruker har også produsentgaranti.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><span data-no="Må jeg være hjemme?" data-en="Do I need to be home?">Må jeg være hjemme?</span><div class="faq-plus">+</div></div>
-      <div class="faq-a" data-no="Nei. Vi trenger kun tilgang til utendørs kran og strøm — alt annet ordner vi selv." data-en="No. We only need access to an outdoor tap and electricity — we take care of everything else.">Nei. Vi trenger kun tilgang til utendørs kran og strøm — alt annet ordner vi selv.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><span data-no="Hvor lang tid tar det?" data-en="How long does it take?">Hvor lang tid tar det?</span><div class="faq-plus">+</div></div>
-      <div class="faq-a" data-no="Vask tar ca. 1 dag. Etter 3–10 dagers tørketid tar malejobben 4–7 arbeidsdager avhengig av størrelse." data-en="Washing takes about 1 day. After 3–10 days of drying time, the painting job takes 4–7 working days depending on size.">Vask tar ca. 1 dag. Etter 3–10 dagers tørketid tar malejobben 4–7 arbeidsdager avhengig av størrelse.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><span data-no="Hjelper dere med fargevalg?" data-en="Do you help with color selection?">Hjelper dere med fargevalg?</span><div class="faq-plus">+</div></div>
-      <div class="faq-a" data-no="Vi hjelper med riktige materialer og produkter. For farger anbefaler vi produsentens fargekart, men vi kan måle eksisterende farge med sensor." data-en="We help with the right materials and products. For colors, we recommend the manufacturer's color charts, but we can measure existing color with a sensor.">Vi hjelper med riktige materialer og produkter. For farger anbefaler vi produsentens fargekart, men vi kan måle eksisterende farge med sensor.</div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<div class="cta-banner fade-up">
-  <div>
-    <h2 data-no="Klar for et <em>frisk nytt</em> utseende?" data-en="Ready for a <em>fresh new</em> look?">Klar for et <em>frisk nytt</em> utseende?</h2>
-    <p data-no="Gratis estimat basert på bilder og beskrivelse. Vi svarer innen 24 timer." data-en="Free estimate based on photos and description. We respond within 24 hours.">Gratis estimat basert på bilder og beskrivelse. Vi svarer innen 24 timer.</p>
-  </div>
-  <a href="#kontakt" class="btn-white" data-no="Få gratis tilbud" data-en="Get a free quote">Få gratis tilbud</a>
-</div>
-
-<!-- CONTACT -->
-<div id="kontakt" class="contact">
-  <div class="contact-info fade-up">
-    <div class="section-label" data-no="Ta kontakt" data-en="Get in touch">Ta kontakt</div>
-    <h2 data-no="La oss snakke om ditt prosjekt" data-en="Let's talk about your project">La oss snakke om ditt prosjekt</h2>
-    <p data-no="Send oss en melding eller ring direkte. Vi gir deg et gratis estimat basert på bilder og beskrivelse — uten befaring." data-en="Send us a message or call directly. We give you a free estimate based on photos and description — no site visit needed.">Send oss en melding eller ring direkte. Vi gir deg et gratis estimat basert på bilder og beskrivelse — uten befaring.</p>
-    <div class="contact-details">
-      <div class="contact-row"><div class="c-icon">📞</div><div class="c-val"><a href="tel:+4700000000">+47 000 00 000</a></div></div>
-      <div class="contact-row"><div class="c-icon">✉️</div><div class="c-val"><a href="mailto:post@primmaler.no">post@primmaler.no</a></div></div>
-      <div class="contact-row"><div class="c-icon">📍</div><div class="c-val" data-no="Fredrikstad og omegn" data-en="Fredrikstad and surroundings">Fredrikstad og omegn</div></div>
-    </div>
-  </div>
-  <div class="contact-form fade-up">
-    <div class="section-label" data-no="Gratis tilbud" data-en="Free quote">Gratis tilbud</div>
-    <h2 data-no="Skriv til oss" data-en="Write to us">Skriv til oss</h2>
-    <br>
-    <div class="form-row">
-      <div class="form-group"><label data-no="Navn" data-en="Name">Navn</label><input type="text" placeholder="Ola Nordmann"></div>
-      <div class="form-group"><label data-no="Telefon" data-en="Phone">Telefon</label><input type="tel" placeholder="+47 000 00 000"></div>
-    </div>
-    <div class="form-group"><label data-no="E-post" data-en="Email">E-post</label><input type="email" placeholder="post@eksempel.no"></div>
-    <div class="form-group">
-      <label data-no="Type oppdrag" data-en="Type of job">Type oppdrag</label>
-      <select>
-        <option data-no="Velg type" data-en="Select type">Velg type</option>
-        <option data-no="Utvendig maling" data-en="Exterior painting">Utvendig maling</option>
-        <option data-no="Innvendig maling" data-en="Interior painting">Innvendig maling</option>
-        <option data-no="Begge deler" data-en="Both">Begge deler</option>
-        <option data-no="Fasadevask" data-en="Facade washing">Fasadevask</option>
-        <option data-no="Annet" data-en="Other">Annet</option>
-      </select>
-    </div>
-    <div class="form-group"><label data-no="Beskrivelse" data-en="Description">Beskrivelse</label><textarea placeholder="Beskriv oppdraget kort – størrelse, tilstand, ønsker..."></textarea></div>
-    <button class="form-submit" data-no="Send forespørsel" data-en="Send request">Send forespørsel</button>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div>
-    <a href="#" class="nav-logo footer-logo">Prim<span>Maler</span></a>
-    <p data-no="Profesjonelt malerfirma i Fredrikstad og omegn. Innvendig og utvendig maling av høy kvalitet." data-en="Professional painting company in Fredrikstad. High-quality interior and exterior painting.">Profesjonelt malerfirma i Fredrikstad og omegn. Innvendig og utvendig maling av høy kvalitet.</p>
-  </div>
-  <div class="footer-col">
-    <h4 data-no="Tjenester" data-en="Services">Tjenester</h4>
-    <ul class="footer-links">
-      <li><a href="#tjenester" data-no="Utvendig maling" data-en="Exterior painting">Utvendig maling</a></li>
-      <li><a href="#tjenester" data-no="Innvendig maling" data-en="Interior painting">Innvendig maling</a></li>
-      <li><a href="#tjenester" data-no="Fasadevask" data-en="Facade washing">Fasadevask</a></li>
-      <li><a href="#tjenester" data-no="Terrassebeising" data-en="Deck staining">Terrassebeising</a></li>
-    </ul>
-  </div>
-  <div class="footer-col">
-    <h4 data-no="Kontakt" data-en="Contact">Kontakt</h4>
-    <ul class="footer-links">
-      <li><a href="tel:+4700000000">+47 000 00 000</a></li>
-      <li><a href="mailto:post@primmaler.no">post@primmaler.no</a></li>
-      <li><a href="#" data-no="Fredrikstad og omegn" data-en="Fredrikstad and surroundings">Fredrikstad og omegn</a></li>
-    </ul>
-  </div>
-</footer>
-<div class="footer-bottom">
-  <span>© 2025 PrimMaler. <span data-no="Alle rettigheter forbeholdt." data-en="All rights reserved.">Alle rettigheter forbeholdt.</span></span>
-  <span data-no="Org.nr: 000 000 000" data-en="Org. no: 000 000 000">Org.nr: 000 000 000</span>
-</div>
-
-<script>
-let currentLang='no';
-function setLang(lang){
-  currentLang=lang;
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
-  document.documentElement.lang=lang;
-  document.querySelectorAll('[data-no]').forEach(el=>{const t=el.getAttribute('data-'+lang);if(t)el.innerHTML=t;});
-  document.querySelectorAll('select option').forEach(opt=>{const t=opt.getAttribute('data-'+lang);if(t)opt.textContent=t;});
-  const ph=lang==='no'
-    ?['Ola Nordmann','+47 000 00 000','post@eksempel.no','Beskriv oppdraget kort – størrelse, tilstand, ønsker...']
-    :['John Smith','+47 000 00 000','email@example.com','Briefly describe the job – size, condition, wishes...'];
-  document.querySelectorAll('.contact-form input,.contact-form textarea').forEach((el,i)=>{if(ph[i])el.placeholder=ph[i];});
-}
-function toggleFaq(el){
-  const open=el.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-  if(!open)el.classList.add('open');
-}
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
-document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
-function toggleMenu(){
-  const l=document.querySelector('.nav-links');
-  l.style.cssText=l.style.display==='flex'?''
-    :'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:#fff;padding:24px 24px 36px;gap:18px;border-bottom:1px solid var(--border);z-index:99;';
-}
-window.addEventListener('scroll',()=>{
-  document.querySelector('nav').style.boxShadow=scrollY>10?'0 2px 16px rgba(14,35,48,0.08)':'none';
-});
-document.querySelector('.form-submit').addEventListener('click',()=>{
-  alert(currentLang==='no'?'Takk! Vi tar kontakt innen 24 timer.':"Thank you! We'll be in touch within 24 hours.");
-});
-</script>
-</body>
+  </body>
 </html>
