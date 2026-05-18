@@ -78,7 +78,7 @@ select {
 }
 
 .hero {
-  padding: 1.2rem 0 2rem;
+  padding: 0 0 2rem;
 }
 
 .topbar {
@@ -86,16 +86,15 @@ select {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  padding: 0.9rem 1rem;
-  margin-bottom: 1.5rem;
-  position: sticky;
-  top: 1rem;
-  z-index: 20;
-  background: rgba(255, 255, 255, 0.62);
-  border: 1px solid rgba(255, 255, 255, 0.78);
-  border-radius: 1.5rem;
-  backdrop-filter: blur(18px);
-  box-shadow: var(--shadow-soft);
+  padding: 1.15rem 0 1.4rem;
+  margin-bottom: 1.4rem;
+  position: relative;
+  z-index: 10;
+  background: transparent;
+  border-bottom: 1px solid rgba(24, 33, 43, 0.08);
+  border-radius: 0;
+  backdrop-filter: none;
+  box-shadow: none;
 }
 
 .brand {
@@ -800,8 +799,7 @@ h2 {
   }
 
   .topbar {
-    top: 0.5rem;
-    padding: 0.85rem;
+    padding: 1rem 0 1.1rem;
   }
 
   .topbar-links {
