@@ -299,128 +299,43 @@ h2 {
   min-height: 34rem;
 }
 
-.visual-stage {
+.hero-poster-frame {
   position: relative;
   height: 100%;
   min-height: 34rem;
+  margin: 0;
+  padding: 1rem;
   border-radius: 2.3rem;
   background:
-    linear-gradient(150deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.22)),
-    linear-gradient(155deg, var(--sky), #effaff 42%, var(--peach));
-  border: 1px solid rgba(255, 255, 255, 0.75);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.45)),
+    linear-gradient(160deg, rgba(226, 243, 255, 0.8), rgba(255, 224, 207, 0.55));
+  border: 1px solid rgba(255, 255, 255, 0.82);
   box-shadow: var(--shadow);
   overflow: hidden;
 }
 
-.visual-stage::before,
-.visual-stage::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-}
-
-.visual-stage::before {
-  width: 19rem;
-  height: 19rem;
-  top: -5rem;
-  right: -4rem;
-  background: rgba(79, 164, 216, 0.22);
-}
-
-.visual-stage::after {
-  width: 16rem;
-  height: 16rem;
-  bottom: -3rem;
-  left: -3rem;
-  background: rgba(255, 203, 135, 0.5);
-}
-
-.visual-stage::selection,
-.visual-stage *::selection {
-  background: transparent;
-}
-
-.visual-stage > .visual-card::before {
+.hero-poster-frame::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  background:
+    radial-gradient(circle at top right, rgba(79, 164, 216, 0.18), transparent 24%),
+    radial-gradient(circle at bottom left, rgba(255, 140, 104, 0.18), transparent 22%);
   pointer-events: none;
 }
 
-.visual-card {
-  position: absolute;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  background: rgba(255, 255, 255, 0.84);
-  backdrop-filter: blur(14px);
-  box-shadow: var(--shadow-soft);
-}
-
-.visual-main {
-  left: 1.8rem;
-  right: 1.8rem;
-  bottom: 1.8rem;
-  padding: 2.2rem 2rem;
-  border-radius: 1.8rem;
-  z-index: 3;
-}
-
-.visual-main p,
-.visual-top p,
-.visual-bottom p {
-  margin: 0 0 0.3rem;
-  color: var(--muted);
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.visual-main strong,
-.visual-top strong,
-.visual-bottom strong {
+.hero-poster {
+  position: relative;
+  z-index: 1;
   display: block;
-  font-size: 1.26rem;
-  letter-spacing: -0.03em;
-}
-
-.visual-top,
-.visual-bottom {
-  display: flex;
-  gap: 0.9rem;
-  align-items: center;
-  padding: 1.05rem 1.1rem;
-  border-radius: 1.3rem;
-  z-index: 2;
-}
-
-.visual-top {
-  top: 1.3rem;
-  right: 1.3rem;
-  max-width: 14.5rem;
-}
-
-.visual-bottom {
-  top: 8.6rem;
-  left: 1.3rem;
-  max-width: 15rem;
-}
-
-.mini-chip {
-  width: 2.8rem;
-  height: 2.8rem;
-  border-radius: 0.9rem;
-  flex: none;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
-}
-
-.chip-ice {
-  background: linear-gradient(145deg, #f8fbfd, #b6d6e8);
-}
-
-.chip-mist {
-  background: linear-gradient(145deg, #eef6f0, #c3dec7);
+  width: 100%;
+  height: 100%;
+  min-height: 32rem;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 1.8rem;
+  box-shadow: 0 24px 60px rgba(29, 43, 58, 0.2);
 }
 
 .stats-strip {
@@ -771,7 +686,7 @@ h2 {
   }
 
   .hero-visual,
-  .visual-stage {
+  .hero-poster-frame {
     min-height: 29rem;
   }
 }
@@ -796,23 +711,13 @@ h2 {
     max-width: 100%;
   }
 
-  .visual-main {
-    left: 1rem;
-    right: 1rem;
-    bottom: 1rem;
-    padding: 1.4rem;
+  .hero-poster-frame {
+    min-height: 24rem;
+    padding: 0.75rem;
   }
 
-  .visual-top {
-    top: 1rem;
-    right: 1rem;
-    max-width: 12.5rem;
-  }
-
-  .visual-bottom {
-    top: 7.6rem;
-    left: 1rem;
-    max-width: 12.75rem;
+  .hero-poster {
+    min-height: 22.5rem;
   }
 
   .contact-row {
