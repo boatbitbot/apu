@@ -599,6 +599,104 @@ h2 {
   padding-bottom: 4rem;
 }
 
+.cta-band {
+  padding-bottom: 4rem;
+}
+
+.cta-band-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(17rem, 0.9fr);
+  gap: 1.4rem;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 2rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(246, 250, 248, 0.88));
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  box-shadow: var(--shadow);
+}
+
+.cta-band-actions {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.page-intro {
+  width: min(1140px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 0 0 2rem;
+}
+
+.page-intro-card {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.9fr);
+  gap: 1.5rem;
+  align-items: end;
+  padding: 2.2rem;
+  border-radius: 2.2rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.56)),
+    linear-gradient(155deg, var(--sky), #f4fbff 48%, var(--peach));
+  border: 1px solid rgba(255, 255, 255, 0.84);
+  box-shadow: var(--shadow);
+}
+
+.page-intro-card::before {
+  content: "";
+  position: absolute;
+  width: 16rem;
+  height: 16rem;
+  right: -4rem;
+  top: -5rem;
+  border-radius: 50%;
+  background: rgba(79, 164, 216, 0.16);
+}
+
+.page-intro-card::after {
+  content: "";
+  position: absolute;
+  width: 12rem;
+  height: 12rem;
+  left: -2rem;
+  bottom: -4rem;
+  border-radius: 50%;
+  background: rgba(255, 140, 104, 0.14);
+}
+
+.page-intro-copy,
+.page-intro-side {
+  position: relative;
+  z-index: 1;
+}
+
+.page-intro-copy p:last-child {
+  max-width: 42rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.page-intro-side {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.3rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-soft);
+}
+
+.page-intro-side strong {
+  font-size: 1rem;
+}
+
+.contact-page-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1.2rem;
+}
+
 .contact-stack {
   display: grid;
   gap: 1rem;
@@ -681,7 +779,10 @@ h2 {
   .faq-grid,
   .timeline,
   .testimonial-section,
-  .contact-section {
+  .contact-section,
+  .contact-page-grid,
+  .cta-band-inner,
+  .page-intro-card {
     grid-template-columns: 1fr;
   }
 
@@ -705,6 +806,11 @@ h2 {
 
   .topbar-links {
     flex-wrap: wrap;
+  }
+
+  .page-intro-card,
+  .cta-band-inner {
+    padding: 1.5rem;
   }
 
   h1 {

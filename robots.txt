@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://brbmaler.no/sitemap.xml

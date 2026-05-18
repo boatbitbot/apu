@@ -8,6 +8,7 @@
       name="description"
       content="Maler i Oslo og Østfold for innvendig maling, utvendig maling og fasademaling. BRB Maler utfører maling av hus, leilighet, rekkehus og hytte i Oslo, Østfold og Follo."
     />
+    <link rel="canonical" href="https://brbmaler.no/" />
     <meta
       name="keywords"
       content="maler Oslo, maler Østfold, innvendig maling Oslo, utvendig maling Østfold, fasademaling Oslo, male hus Østfold, malerfirma Oslo"
@@ -22,6 +23,8 @@
       property="og:description"
       content="Innvendig maling, utvendig maling og fasademaling i Oslo, Østfold og Follo."
     />
+    <meta property="og:url" content="https://brbmaler.no/" />
+    <meta property="og:image" content="https://brbmaler.no/assets/hero-brb-poster.png" />
     <meta property="og:locale" content="nb_NO" />
     <meta property="og:site_name" content="BRB Maler" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -33,6 +36,7 @@
       name="twitter:description"
       content="Innvendig maling, utvendig maling og fasademaling i Oslo, Østfold og Follo."
     />
+    <meta name="twitter:image" content="https://brbmaler.no/assets/hero-brb-poster.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -45,7 +49,8 @@
         "@context": "https://schema.org",
         "@type": "HousePainter",
         "name": "BRB Maler",
-        "url": "https://github.com/boatbitbot/apu",
+        "url": "https://brbmaler.no/",
+        "image": "https://brbmaler.no/assets/hero-brb-poster.png",
         "description": "Interior and exterior painting services in Oslo, Ostfold and nearby areas.",
         "telephone": "+47 400 00 000",
         "email": "hei@brbmaler.no",
@@ -157,7 +162,7 @@
             <div class="topbar-links">
               <a href="#tjenester" data-no="Tjenester" data-en="Services">Tjenester</a>
               <a href="#omrader" data-no="Områder" data-en="Areas">Områder</a>
-              <a href="#kontakt" data-no="Kontakt" data-en="Contact">Kontakt</a>
+              <a href="./kontakt/" data-no="Kontakt" data-en="Contact">Kontakt</a>
             </div>
             <div class="lang-switch" aria-label="Language switcher">
               <button class="lang-button is-active" type="button" data-lang="no">NO</button>
@@ -192,7 +197,7 @@
             <div class="hero-actions">
               <a
                 class="button button-primary"
-                href="#kontakt"
+                href="./kontakt/"
                 data-no="Be om befaring"
                 data-en="Request a consultation"
               >
@@ -548,7 +553,7 @@
             </p>
             <a
               class="text-link"
-              href="#kontakt"
+              href="./kontakt/"
               data-no="Kontakt oss"
               data-en="Contact us"
             >
@@ -557,106 +562,35 @@
           </div>
         </section>
 
-        <section class="section contact-section" id="kontakt">
-          <div class="contact-copy">
-            <p class="eyebrow" data-no="Kontakt" data-en="Contact">Kontakt</p>
-            <h2
-              data-no="Kontakt oss."
-              data-en="Contact us."
-            >
-              Kontakt oss.
-            </h2>
-            <p
-              data-no="Send navn, område og hva som skal males."
-              data-en="Send your name, area and what needs painting."
-            >
-              Send navn, område og hva som skal males.
-            </p>
-          </div>
-
-          <div class="contact-stack">
-            <div class="contact-panel">
-              <div class="contact-row">
-                <span data-no="Telefon" data-en="Phone">Telefon</span>
-                <strong>+47 400 00 000</strong>
-              </div>
-              <div class="contact-row">
-                <span data-no="E-post" data-en="Email">E-post</span>
-                <strong>hei@brbmaler.no</strong>
-              </div>
-              <div class="contact-row">
-                <span data-no="Områder" data-en="Areas">Områder</span>
-                <strong
-                  data-no="Oslo, Østfold, Follo og nærliggende områder"
-                  data-en="Oslo, Østfold, Follo and nearby areas"
-                >
-                  Oslo, Østfold, Follo og nærliggende områder
-                </strong>
-              </div>
-              <a
-                class="button button-primary button-full"
-                href="mailto:hei@brbmaler.no"
-                data-no="Bestill befaring"
-                data-en="Book a consultation"
+        <section class="section cta-band" id="kontakt">
+          <div class="cta-band-inner">
+            <div class="cta-band-copy">
+              <p class="eyebrow" data-no="Kontakt" data-en="Contact">Kontakt</p>
+              <h2
+                data-no="Egen kontaktside for befaring og forespørsel."
+                data-en="Dedicated contact page for consultations and enquiries."
               >
-                Bestill befaring
-              </a>
+                Egen kontaktside for befaring og forespørsel.
+              </h2>
+              <p
+                data-no="Gå til kontaktsiden for telefon, e-post og forespørsel om innvendig eller utvendig maling i Oslo, Østfold og Follo."
+                data-en="Go to the contact page for phone, email and enquiries about interior or exterior painting in Oslo, Østfold and Follo."
+              >
+                Gå til kontaktsiden for telefon, e-post og forespørsel om
+                innvendig eller utvendig maling i Oslo, Østfold og Follo.
+              </p>
             </div>
-
-            <form class="contact-form">
-              <div class="form-grid">
-                <label class="field">
-                  <span data-no="Navn" data-en="Name">Navn</span>
-                  <input
-                    type="text"
-                    name="name"
-                    data-placeholder-no="Ditt navn"
-                    data-placeholder-en="Your name"
-                    placeholder="Ditt navn"
-                  />
-                </label>
-                <label class="field">
-                  <span data-no="E-post" data-en="Email">E-post</span>
-                  <input
-                    type="email"
-                    name="email"
-                    data-placeholder-no="din@epost.no"
-                    data-placeholder-en="you@email.com"
-                    placeholder="din@epost.no"
-                  />
-                </label>
-              </div>
-              <label class="field">
-                <span data-no="Prosjekttype" data-en="Project type">Prosjekttype</span>
-                <select name="projectType">
-                  <option value="interior" data-no="Innvendig maling" data-en="Interior painting">
-                    Innvendig maling
-                  </option>
-                  <option value="exterior" data-no="Utvendig maling" data-en="Exterior painting">
-                    Utvendig maling
-                  </option>
-                  <option value="both" data-no="Begge deler" data-en="Both">Begge deler</option>
-                </select>
-              </label>
-              <label class="field">
-                <span data-no="Melding" data-en="Message">Melding</span>
-                <textarea
-                  name="message"
-                  rows="4"
-                  data-placeholder-no="Skriv gjerne hvor i Oslo eller Østfold prosjektet er, og hva du vil få malt."
-                  data-placeholder-en="Please include where in Oslo or Østfold the project is, and what you would like painted."
-                  placeholder="Skriv gjerne hvor i Oslo eller Østfold prosjektet er, og hva du vil få malt."
-                ></textarea>
-              </label>
-              <button
-                class="button button-secondary button-full"
-                type="submit"
-                data-no="Send forespørsel"
-                data-en="Send request"
+            <div class="cta-band-actions">
+              <a
+                class="button button-primary"
+                href="./kontakt/"
+                data-no="Gå til kontakt"
+                data-en="Go to contact"
               >
-                Send forespørsel
-              </button>
-            </form>
+                Gå til kontakt
+              </a>
+              <a class="button button-secondary" href="mailto:hei@brbmaler.no">hei@brbmaler.no</a>
+            </div>
           </div>
         </section>
       </main>
@@ -703,33 +637,6 @@
 
       langButtons.forEach((button) => {
         button.addEventListener("click", () => setLanguage(button.dataset.lang));
-      });
-
-      document.querySelector(".contact-form").addEventListener("submit", (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.currentTarget);
-        const lang = document.documentElement.lang === "en" ? "en" : "no";
-        const subject =
-          lang === "en" ? "Painting project enquiry" : "Foresporsel om maleprosjekt";
-        const lines =
-          lang === "en"
-            ? [
-                `Name: ${formData.get("name") || ""}`,
-                `Email: ${formData.get("email") || ""}`,
-                `Project type: ${formData.get("projectType") || ""}`,
-                "",
-                `${formData.get("message") || ""}`
-              ]
-            : [
-                `Navn: ${formData.get("name") || ""}`,
-                `E-post: ${formData.get("email") || ""}`,
-                `Prosjekttype: ${formData.get("projectType") || ""}`,
-                "",
-                `${formData.get("message") || ""}`
-              ];
-
-        const body = encodeURIComponent(lines.join("\n"));
-        window.location.href = `mailto:hei@brbmaler.no?subject=${encodeURIComponent(subject)}&body=${body}`;
       });
 
       setLanguage("no");
